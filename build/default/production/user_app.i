@@ -27357,12 +27357,38 @@ extern volatile u32 G_u32SystemFlags;
 # 76 "user_app.c"
 void UserAppInitialize(void)
 {
+    LATA = 0x80;
 
 
 }
-# 95 "user_app.c"
+# 96 "user_app.c"
 void UserAppRun(void)
 {
+  static u8 u8LedCounter = 0;
+  u8 u8Temp;
+  u32 u32DelayCounter;
+
+
+  u8LedCounter++;
+  if(u8LedCounter == 0x40)
+  {
+    u8LedCounter = 0;
+  }
+# 121 "user_app.c"
+  u8Temp = PORTA;
+  u8Temp &= 0xC0;
+  u8Temp |= u8LedCounter;
+  LATA = u8Temp;
+
+
+
+
+
+  u32DelayCounter = 1000000;
+  while(u32DelayCounter != 0)
+  {
+    u32DelayCounter--;
+  }
 
 
 }

@@ -1,4 +1,10 @@
 Version 4.0 HI-TECH Software Intermediate Code
+"45585 C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 45585: extern volatile unsigned char LATA __attribute__((address(0x4BE)));
+[v _LATA `Vuc ~T0 @X0 0 e@1214 ]
+"46095
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 46095: extern volatile unsigned char PORTA __attribute__((address(0x4CE)));
+[v _PORTA `Vuc ~T0 @X0 0 e@1230 ]
 "30 ./configuration.h
 [p x FEXTOSC  =  OFF     ]
 "31
@@ -2531,19 +2537,83 @@ Version 4.0 HI-TECH Software Intermediate Code
 {
 [e :U _UserAppInitialize ]
 [f ]
-"80
-[; ;user_app.c: 80: }
+"78
+[; ;user_app.c: 78:     LATA = 0x80;
+[e = _LATA -> -> 128 `i `uc ]
+"81
+[; ;user_app.c: 81: }
 [e :UE 2272 ]
 }
-"95
-[; ;user_app.c: 95: void UserAppRun(void)
-[v _UserAppRun `(v ~T0 @X0 1 ef ]
 "96
-[; ;user_app.c: 96: {
+[; ;user_app.c: 96: void UserAppRun(void)
+[v _UserAppRun `(v ~T0 @X0 1 ef ]
+"97
+[; ;user_app.c: 97: {
 {
 [e :U _UserAppRun ]
 [f ]
+"98
+[; ;user_app.c: 98:   static u8 u8LedCounter = 0;
+[v F15936 `uc ~T0 @X0 1 s u8LedCounter ]
+[i F15936
+-> -> 0 `i `uc
+]
 "99
-[; ;user_app.c: 99: }
+[; ;user_app.c: 99:   u8 u8Temp;
+[v _u8Temp `uc ~T0 @X0 1 a ]
+"100
+[; ;user_app.c: 100:   u32 u32DelayCounter;
+[v _u32DelayCounter `ul ~T0 @X0 1 a ]
+"103
+[; ;user_app.c: 103:   u8LedCounter++;
+[e ++ F15936 -> -> 1 `i `uc ]
+"104
+[; ;user_app.c: 104:   if(u8LedCounter == 0x40)
+[e $ ! == -> F15936 `i -> 64 `i 2274  ]
+"105
+[; ;user_app.c: 105:   {
+{
+"106
+[; ;user_app.c: 106:     u8LedCounter = 0;
+[e = F15936 -> -> 0 `i `uc ]
+"107
+[; ;user_app.c: 107:   }
+}
+[e :U 2274 ]
+"121
+[; ;user_app.c: 121:   u8Temp = PORTA;
+[e = _u8Temp _PORTA ]
+"122
+[; ;user_app.c: 122:   u8Temp &= 0xC0;
+[e =& _u8Temp -> -> 192 `i `uc ]
+"123
+[; ;user_app.c: 123:   u8Temp |= u8LedCounter;
+[e =| _u8Temp -> F15936 `uc ]
+"124
+[; ;user_app.c: 124:   LATA = u8Temp;
+[e = _LATA _u8Temp ]
+"130
+[; ;user_app.c: 130:   u32DelayCounter = 1000000;
+[e = _u32DelayCounter -> -> 1000000 `l `ul ]
+"131
+[; ;user_app.c: 131:   while(u32DelayCounter != 0)
+[e $U 2275  ]
+[e :U 2276 ]
+"132
+[; ;user_app.c: 132:   {
+{
+"133
+[; ;user_app.c: 133:     u32DelayCounter--;
+[e -- _u32DelayCounter -> -> -> 1 `i `l `ul ]
+"134
+[; ;user_app.c: 134:   }
+}
+[e :U 2275 ]
+"131
+[; ;user_app.c: 131:   while(u32DelayCounter != 0)
+[e $ != _u32DelayCounter -> -> -> 0 `i `l `ul 2276  ]
+[e :U 2277 ]
+"137
+[; ;user_app.c: 137: }
 [e :UE 2273 ]
 }

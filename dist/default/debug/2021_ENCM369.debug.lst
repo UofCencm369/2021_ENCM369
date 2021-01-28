@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.31 build 20201012212115 
-                                                                                               Wed Jan 27 20:14:11 2021
+                                                                                               Wed Jan 27 20:17:08 2021
 
 Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1 
      1                           	processor	18F27Q43
@@ -287,12 +287,12 @@ Microchip MPLAB XC8 C Compiler v2.31 (Free license) build 20201012212115 Og1
    252                           ;user_app.c: 124:   LATA = u8Temp;
    253  01FFC0  0061  F44C  F4BE   	movff	UserAppRun@u8Temp,1214	;volatile
    254                           
-   255                           ;user_app.c: 130:   u32DelayCounter = 1000000;
-   256  01FFC6  0E40               	movlw	64
+   255                           ;user_app.c: 130:   u32DelayCounter = 333333;
+   256  01FFC6  0E15               	movlw	21
    257  01FFC8  6E0F               	movwf	UserAppRun@u32DelayCounter^(0+1280),c
-   258  01FFCA  0E42               	movlw	66
+   258  01FFCA  0E16               	movlw	22
    259  01FFCC  6E10               	movwf	(UserAppRun@u32DelayCounter+1)^(0+1280),c
-   260  01FFCE  0E0F               	movlw	15
+   260  01FFCE  0E05               	movlw	5
    261  01FFD0  6E11               	movwf	(UserAppRun@u32DelayCounter+2)^(0+1280),c
    262  01FFD2  0E00               	movlw	0
    263  01FFD4  6E12               	movwf	(UserAppRun@u32DelayCounter+3)^(0+1280),c
@@ -1146,7 +1146,7 @@ CODE                 0      0       0       0        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V2.31 build 20201012212115 
-Symbol Table                                                                                   Wed Jan 27 20:14:11 2021
+Symbol Table                                                                                   Wed Jan 27 20:17:08 2021
 
      __size_of_SysTickSetup 0022                          l11 FF2E                          l20 FF30  
                         l14 FF42                          l17 FF76                          l61 FFE4  

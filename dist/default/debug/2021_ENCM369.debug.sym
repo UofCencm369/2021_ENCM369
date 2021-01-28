@@ -253,9 +253,9 @@ text2 1FF32 1FF37 CODE 1FF32 0
 text3 1FF30 1FF31 CODE 1FF30 0
 text6 1FF2E 1FF2F CODE 1FF2E 0
 %locals
-dist/default/production\2021_ENCM369.production.o
+dist/default/debug\2021_ENCM369.debug.o
 C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h
-C:\Users\ENGENU~1\AppData\Local\Temp\sb64.s
+C:\Users\ENGENU~1\AppData\Local\Temp\sfa4.s
 5084 1FF44 0 CODE 0
 5086 1FF44 0 CODE 0
 5089 1FF44 0 CODE 0

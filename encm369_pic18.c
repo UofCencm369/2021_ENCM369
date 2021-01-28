@@ -83,13 +83,14 @@ Requires:
 - All configurations must match connected hardware.
 
 Promises:
-- Output pin for PA31_HEARTBEAT is configured
+- PORTA setup for LED output
 
 */
 void GpioSetup(void)
 {
-  
-  
+  ANSELA = 0x00;
+  TRISA = 0x00;
+ 
 } /* end GpioSetup() */
 
 
