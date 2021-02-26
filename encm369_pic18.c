@@ -84,12 +84,15 @@ Requires:
 
 Promises:
 - PORTA setup for LED output
+- PORTB has RB5 and RB4 as digital inputs
 
 */
 void GpioSetup(void)
 {
   ANSELA = 0x00;
+  ANSELB = 0x00;
   TRISA = 0x00;
+  TRISB = 0x30;  // b'00110000' for RB5 and RB4 inputs
  
 } /* end GpioSetup() */
 

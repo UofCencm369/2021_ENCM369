@@ -2,6 +2,9 @@ Version 4.0 HI-TECH Software Intermediate Code
 "45585 C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h
 [; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 45585: extern volatile unsigned char LATA __attribute__((address(0x4BE)));
 [v _LATA `Vuc ~T0 @X0 0 e@1214 ]
+"46157
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 46157: extern volatile unsigned char PORTB __attribute__((address(0x4CF)));
+[v _PORTB `Vuc ~T0 @X0 0 e@1231 ]
 "46095
 [; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 46095: extern volatile unsigned char PORTA __attribute__((address(0x4CE)));
 [v _PORTA `Vuc ~T0 @X0 0 e@1230 ]
@@ -2553,67 +2556,75 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _UserAppRun ]
 [f ]
 "98
-[; ;user_app.c: 98:   static u8 u8LedCounter = 0;
-[v F15936 `uc ~T0 @X0 1 s u8LedCounter ]
+[; ;user_app.c: 98:   static u32 u32LedCounter = 0;
+[v F15936 `ul ~T0 @X0 1 s u32LedCounter ]
 [i F15936
--> -> 0 `i `uc
+-> -> -> 0 `i `l `ul
 ]
 "99
-[; ;user_app.c: 99:   u8 u8Temp;
+[; ;user_app.c: 99:   static _Bool bButtonPressed = 0;
+[v F15937 `a ~T0 @X0 1 s bButtonPressed ]
+[i F15937
+-> -> 0 `i `a
+]
+"101
+[; ;user_app.c: 101:   u8 u8Temp;
 [v _u8Temp `uc ~T0 @X0 1 a ]
-"100
-[; ;user_app.c: 100:   u32 u32DelayCounter;
+"102
+[; ;user_app.c: 102:   u32 u32DelayCounter;
 [v _u32DelayCounter `ul ~T0 @X0 1 a ]
-"103
-[; ;user_app.c: 103:   u8LedCounter++;
-[e ++ F15936 -> -> 1 `i `uc ]
-"104
-[; ;user_app.c: 104:   if(u8LedCounter == 0x40)
-[e $ ! == -> F15936 `i -> 64 `i 2274  ]
 "105
-[; ;user_app.c: 105:   {
-{
+[; ;user_app.c: 105:   if( (!bButtonPressed) && (PORTB & 0x20) )
+[e $ ! && ! != -> F15937 `i -> 0 `i != & -> _PORTB `i -> 32 `i -> 0 `i 2274  ]
 "106
-[; ;user_app.c: 106:     u8LedCounter = 0;
-[e = F15936 -> -> 0 `i `uc ]
-"107
-[; ;user_app.c: 107:   }
-}
-[e :U 2274 ]
-"121
-[; ;user_app.c: 121:   u8Temp = PORTA;
-[e = _u8Temp _PORTA ]
-"122
-[; ;user_app.c: 122:   u8Temp &= 0xC0;
-[e =& _u8Temp -> -> 192 `i `uc ]
-"123
-[; ;user_app.c: 123:   u8Temp |= u8LedCounter;
-[e =| _u8Temp -> F15936 `uc ]
-"124
-[; ;user_app.c: 124:   LATA = u8Temp;
-[e = _LATA _u8Temp ]
-"130
-[; ;user_app.c: 130:   u32DelayCounter = 1000000;
-[e = _u32DelayCounter -> -> 1000000 `l `ul ]
-"131
-[; ;user_app.c: 131:   while(u32DelayCounter != 0)
-[e $U 2275  ]
-[e :U 2276 ]
-"132
-[; ;user_app.c: 132:   {
+[; ;user_app.c: 106:   {
 {
-"133
-[; ;user_app.c: 133:     u32DelayCounter--;
-[e -- _u32DelayCounter -> -> -> 1 `i `l `ul ]
-"134
-[; ;user_app.c: 134:   }
+"108
+[; ;user_app.c: 108:     bButtonPressed = 1;
+[e = F15937 -> -> 1 `i `a ]
+"111
+[; ;user_app.c: 111:     u32LedCounter++;
+[e ++ F15936 -> -> -> 1 `i `l `ul ]
+"114
+[; ;user_app.c: 114:     u8Temp = PORTA;
+[e = _u8Temp _PORTA ]
+"115
+[; ;user_app.c: 115:     u8Temp &= 0xC0;
+[e =& _u8Temp -> -> 192 `i `uc ]
+"116
+[; ;user_app.c: 116:     u8Temp |= (u8)(u32LedCounter & 0x000000FF);
+[e =| _u8Temp -> -> & F15936 -> -> -> 255 `i `l `ul `uc `uc ]
+"117
+[; ;user_app.c: 117:     LATA = u8Temp;
+[e = _LATA _u8Temp ]
+"118
+[; ;user_app.c: 118:   }
+}
+[e $U 2275  ]
+"119
+[; ;user_app.c: 119:   else
+[e :U 2274 ]
+"120
+[; ;user_app.c: 120:   {
+{
+"122
+[; ;user_app.c: 122:   }
 }
 [e :U 2275 ]
+"125
+[; ;user_app.c: 125:   if( !(PORTB & 0x20) )
+[e $ ! ! != & -> _PORTB `i -> 32 `i -> 0 `i 2276  ]
+"126
+[; ;user_app.c: 126:   {
+{
+"127
+[; ;user_app.c: 127:     bButtonPressed = 0;
+[e = F15937 -> -> 0 `i `a ]
+"128
+[; ;user_app.c: 128:   }
+}
+[e :U 2276 ]
 "131
-[; ;user_app.c: 131:   while(u32DelayCounter != 0)
-[e $ != _u32DelayCounter -> -> -> 0 `i `l `ul 2276  ]
-[e :U 2277 ]
-"137
-[; ;user_app.c: 137: }
+[; ;user_app.c: 131: }
 [e :UE 2273 ]
 }

@@ -27364,30 +27364,36 @@ void UserAppInitialize(void)
 # 96 "user_app.c"
 void UserAppRun(void)
 {
-  static u8 u8LedCounter = 0;
+  static u32 u32LedCounter = 0;
+  static _Bool bButtonPressed = 0;
+
   u8 u8Temp;
   u32 u32DelayCounter;
 
 
-  u8LedCounter++;
-  if(u8LedCounter == 0x40)
+  if( (!bButtonPressed) && (PORTB & 0x20) )
   {
-    u8LedCounter = 0;
+
+    bButtonPressed = 1;
+
+
+    u32LedCounter++;
+
+
+    u8Temp = PORTA;
+    u8Temp &= 0xC0;
+    u8Temp |= (u8)(u32LedCounter & 0x000000FF);
+    LATA = u8Temp;
   }
-# 121 "user_app.c"
-  u8Temp = PORTA;
-  u8Temp &= 0xC0;
-  u8Temp |= u8LedCounter;
-  LATA = u8Temp;
-
-
-
-
-
-  u32DelayCounter = 333333;
-  while(u32DelayCounter != 0)
+  else
   {
-    u32DelayCounter--;
+
+  }
+
+
+  if( !(PORTB & 0x20) )
+  {
+    bButtonPressed = 0;
   }
 
 

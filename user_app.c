@@ -95,45 +95,39 @@ Promises:
 */
 void UserAppRun(void)
 {
-  static u8 u8LedCounter = 0;
+  static u32 u32LedCounter = 0;
+  static bool bButtonPressed = false;
+  
   u8 u8Temp;
   u32 u32DelayCounter;
   
-  /* Update the counter and check overflow */
-  u8LedCounter++;
-  if(u8LedCounter == 0x40)
+  /* Check if the button is pressed only if it is currently not pressed */
+  if( (!bButtonPressed) && (PORTB & 0x20) )
   {
-    u8LedCounter = 0;
+    /* Flag that the button is pressed */
+    bButtonPressed = true;
+ 
+    /* Update the counter */
+    u32LedCounter++;
+
+    /* Update the PORTA LEDs being careful not to disturb RA7*/
+    u8Temp = PORTA;
+    u8Temp &= 0xC0;
+    u8Temp |= (u8)(u32LedCounter & 0x000000FF);
+    LATA = u8Temp;
+  }
+  else
+  {
+    /* Do nothing */
   }
   
-  /* Update the PORTA LEDs being careful not to disturb RA7*/
-
-  /* Option 1: clear the 6 LSBs then OR in the set bits of u8LedCounter.
-   * The problem with this, though, is that all of RA0:RA5 go low for a moment
-   * albeit a very short moment.  However, if those outputs were being watched,
-   * that could potentially cause serious issues. */
-#if 0
-  LATA &= 0xC0;
-  LATA |= u8LedCounter;
-#endif
-  /* Option 2: read the current values, update the bits of interest, then write them back. 
-   * This takes more code and requires a temp variable, but not to worry. */
-  u8Temp = PORTA;
-  u8Temp &= 0xC0;
-  u8Temp |= u8LedCounter;
-  LATA = u8Temp;
-  
-  /* Add the delay
-   * 16MHz clock, so 1/16MHz per instruction = 62.5ns / cycle.
-   * 250ms / 62.5ns = 4,000,000 cycles.
-   * 12 cycles per loop, so need 333,333 */
-  u32DelayCounter = 333333;
-  while(u32DelayCounter != 0)
+  /* Make sure to clear bButtonPressed if the button is not currently pressed */
+  if( !(PORTB & 0x20) )
   {
-    u32DelayCounter--;
+    bButtonPressed = false;
   }
   
-
+ 
 } /* end UserAppRun */
 
 
