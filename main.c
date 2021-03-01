@@ -60,6 +60,11 @@ void main(void)
     /* System sleep */
     HEARTBEAT_OFF();
     SystemSleep();
+    
+    /* Set the timer for 1ms and wait out the period */
+    TimeXus(1000);
+    while( PIR3bits.TMR0IF == 0 );
+  
     HEARTBEAT_ON();
     
   } /* end while(1) main super loop */

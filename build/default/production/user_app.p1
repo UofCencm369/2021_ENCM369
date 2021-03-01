@@ -1,10 +1,49 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"45585 C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h
+"44876 C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 44876:     struct {
+[s S2125 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2125 . SPI1RXIF SPI1TXIF SPI1IF TMR2IF TMR1IF TMR1GIF CCP1IF TMR0IF ]
+"44875
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 44875: typedef union {
+[u S2124 `S2125 1 ]
+[n S2124 . . ]
+"44887
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 44887: extern volatile PIR3bits_t PIR3bits __attribute__((address(0x4B1)));
+[v _PIR3bits `VS2124 ~T0 @X0 0 e@1201 ]
+"22633
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 22633:     struct {
+[s S1099 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1099 . OUTPS MD16 OUT . EN ]
+"22640
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 22640:     struct {
+[s S1100 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1100 . T0OUTPS T0MD16 T0OUT . T0EN ]
+"22647
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 22647:     struct {
+[s S1101 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S1101 . OUTPS0 OUTPS1 OUTPS2 OUTPS3 T016BIT ]
+"22632
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 22632: typedef union {
+[u S1098 `S1099 1 `S1100 1 `S1101 1 ]
+[n S1098 . . . . ]
+"22655
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 22655: extern volatile T0CON0bits_t T0CON0bits __attribute__((address(0x31A)));
+[v _T0CON0bits `VS1098 ~T0 @X0 0 e@794 ]
+"22373
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 22373: extern volatile unsigned char TMR0H __attribute__((address(0x319)));
+[v _TMR0H `Vuc ~T0 @X0 0 e@793 ]
+"22235
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 22235: extern volatile unsigned char TMR0L __attribute__((address(0x318)));
+[v _TMR0L `Vuc ~T0 @X0 0 e@792 ]
+"45585
 [; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 45585: extern volatile unsigned char LATA __attribute__((address(0x4BE)));
 [v _LATA `Vuc ~T0 @X0 0 e@1214 ]
-"46095
-[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 46095: extern volatile unsigned char PORTA __attribute__((address(0x4CE)));
-[v _PORTA `Vuc ~T0 @X0 0 e@1230 ]
+"22627
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 22627: extern volatile unsigned char T0CON0 __attribute__((address(0x31A)));
+[v _T0CON0 `Vuc ~T0 @X0 0 e@794 ]
+"22725
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 22725: extern volatile unsigned char T0CON1 __attribute__((address(0x31B)));
+[v _T0CON1 `Vuc ~T0 @X0 0 e@795 ]
 "30 ./configuration.h
 [p x FEXTOSC  =  OFF     ]
 "31
@@ -2529,91 +2568,167 @@ Version 4.0 HI-TECH Software Intermediate Code
 "33 user_app.c
 [; ;user_app.c: 33: volatile u8 G_u8UserAppFlags;
 [v _G_u8UserAppFlags `Vuc ~T0 @X0 1 e ]
-"76
-[; ;user_app.c: 76: void UserAppInitialize(void)
-[v _UserAppInitialize `(v ~T0 @X0 1 ef ]
+"72
+[; ;user_app.c: 72: void TimeXus(u16 u16TimeXus_)
+[v _TimeXus `(v ~T0 @X0 1 ef1`us ]
+"73
+[; ;user_app.c: 73: {
+{
+[e :U _TimeXus ]
+"72
+[; ;user_app.c: 72: void TimeXus(u16 u16TimeXus_)
+[v _u16TimeXus_ `us ~T0 @X0 1 r1 ]
+"73
+[; ;user_app.c: 73: {
+[f ]
+"74
+[; ;user_app.c: 74:   u16 u16Temp = 65535;
+[v _u16Temp `us ~T0 @X0 1 a ]
+[e = _u16Temp -> -> 65535 `l `us ]
 "77
-[; ;user_app.c: 77: {
+[; ;user_app.c: 77:   if(u16TimeXus_ == 0)
+[e $ ! == -> _u16TimeXus_ `ui -> -> 0 `i `ui 2273  ]
+"78
+[; ;user_app.c: 78:   {
+{
+"79
+[; ;user_app.c: 79:       PIR3bits.TMR0IF = 1;
+[e = . . _PIR3bits 0 7 -> -> 1 `i `uc ]
+"80
+[; ;user_app.c: 80:       return;
+[e $UE 2272  ]
+"81
+[; ;user_app.c: 81:   }
+}
+[e :U 2273 ]
+"84
+[; ;user_app.c: 84:   T0CON0bits.EN = 0;
+[e = . . _T0CON0bits 0 4 -> -> 0 `i `uc ]
+"87
+[; ;user_app.c: 87:   u16Temp -= u16TimeXus_;
+[e =- _u16Temp -> _u16TimeXus_ `us ]
+"88
+[; ;user_app.c: 88:   TMR0H = (u8)( (u16Temp >> 8) & 0x00FF);
+[e = _TMR0H -> & >> -> _u16Temp `ui -> 8 `i -> -> 255 `i `ui `uc ]
+"89
+[; ;user_app.c: 89:   TMR0L = (u8)( u16Temp & 0x00FF);
+[e = _TMR0L -> & -> _u16Temp `ui -> -> 255 `i `ui `uc ]
+"92
+[; ;user_app.c: 92:   PIR3bits.TMR0IF = 0;
+[e = . . _PIR3bits 0 7 -> -> 0 `i `uc ]
+"93
+[; ;user_app.c: 93:   T0CON0bits.EN = 1;
+[e = . . _T0CON0bits 0 4 -> -> 1 `i `uc ]
+"95
+[; ;user_app.c: 95: }
+[e :UE 2272 ]
+}
+"117
+[; ;user_app.c: 117: void UserAppInitialize(void)
+[v _UserAppInitialize `(v ~T0 @X0 1 ef ]
+"118
+[; ;user_app.c: 118: {
 {
 [e :U _UserAppInitialize ]
 [f ]
-"78
-[; ;user_app.c: 78:     LATA = 0x80;
-[e = _LATA -> -> 128 `i `uc ]
-"81
-[; ;user_app.c: 81: }
-[e :UE 2272 ]
+"120
+[; ;user_app.c: 120:     LATA &= 0xC0;
+[e =& _LATA -> -> 192 `i `Vuc ]
+"124
+[; ;user_app.c: 124:     T0CON0 = 0x90;
+[e = _T0CON0 -> -> 144 `i `uc ]
+"125
+[; ;user_app.c: 125:     T0CON1 = 0x54;
+[e = _T0CON1 -> -> 84 `i `uc ]
+"127
+[; ;user_app.c: 127: }
+[e :UE 2274 ]
 }
-"96
-[; ;user_app.c: 96: void UserAppRun(void)
+"142
+[; ;user_app.c: 142: void UserAppRun(void)
 [v _UserAppRun `(v ~T0 @X0 1 ef ]
-"97
-[; ;user_app.c: 97: {
+"143
+[; ;user_app.c: 143: {
 {
 [e :U _UserAppRun ]
 [f ]
-"98
-[; ;user_app.c: 98:   static u8 u8LedCounter = 0;
-[v F15936 `uc ~T0 @X0 1 s u8LedCounter ]
-[i F15936
+"144
+[; ;user_app.c: 144:   u8 u8Temp;
+[v _u8Temp `uc ~T0 @X0 1 a ]
+"145
+[; ;user_app.c: 145:   static u16 u16SecondCounter = 0;
+[v F15942 `us ~T0 @X0 1 s u16SecondCounter ]
+[i F15942
+-> -> 0 `i `us
+]
+"146
+[; ;user_app.c: 146:   static u8 au8Pattern[] = {0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x10, 0x08, 0x04, 0x02};
+[v F15943 `uc ~T0 @X0 -> 10 `i s au8Pattern ]
+[i F15943
+:U ..
+-> -> 1 `i `uc
+-> -> 2 `i `uc
+-> -> 4 `i `uc
+-> -> 8 `i `uc
+-> -> 16 `i `uc
+-> -> 32 `i `uc
+-> -> 16 `i `uc
+-> -> 8 `i `uc
+-> -> 4 `i `uc
+-> -> 2 `i `uc
+..
+]
+"147
+[; ;user_app.c: 147:   static u8 u8PatternIndex = 0;
+[v F15944 `uc ~T0 @X0 1 s u8PatternIndex ]
+[i F15944
 -> -> 0 `i `uc
 ]
-"99
-[; ;user_app.c: 99:   u8 u8Temp;
-[v _u8Temp `uc ~T0 @X0 1 a ]
-"100
-[; ;user_app.c: 100:   u32 u32DelayCounter;
-[v _u32DelayCounter `ul ~T0 @X0 1 a ]
-"103
-[; ;user_app.c: 103:   u8LedCounter++;
-[e ++ F15936 -> -> 1 `i `uc ]
-"104
-[; ;user_app.c: 104:   if(u8LedCounter == 0x40)
-[e $ ! == -> F15936 `i -> 64 `i 2274  ]
-"105
-[; ;user_app.c: 105:   {
+"149
+[; ;user_app.c: 149:   u16SecondCounter++;
+[e ++ F15942 -> -> 1 `i `us ]
+"150
+[; ;user_app.c: 150:   if(u16SecondCounter == 100)
+[e $ ! == -> F15942 `ui -> -> 100 `i `ui 2276  ]
+"151
+[; ;user_app.c: 151:   {
 {
-"106
-[; ;user_app.c: 106:     u8LedCounter = 0;
-[e = F15936 -> -> 0 `i `uc ]
-"107
-[; ;user_app.c: 107:   }
-}
-[e :U 2274 ]
-"121
-[; ;user_app.c: 121:   u8Temp = PORTA;
-[e = _u8Temp _PORTA ]
-"122
-[; ;user_app.c: 122:   u8Temp &= 0xC0;
+"152
+[; ;user_app.c: 152:     u16SecondCounter = 0;
+[e = F15942 -> -> 0 `i `us ]
+"155
+[; ;user_app.c: 155:    u8Temp = LATA;
+[e = _u8Temp _LATA ]
+"156
+[; ;user_app.c: 156:    u8Temp &= 0xC0;
 [e =& _u8Temp -> -> 192 `i `uc ]
-"123
-[; ;user_app.c: 123:   u8Temp |= u8LedCounter;
-[e =| _u8Temp -> F15936 `uc ]
-"124
-[; ;user_app.c: 124:   LATA = u8Temp;
+"157
+[; ;user_app.c: 157:    u8Temp |= au8Pattern[u8PatternIndex];
+[e =| _u8Temp -> *U + &U F15943 * -> F15944 `ux -> -> # *U &U F15943 `ui `ux `uc ]
+"158
+[; ;user_app.c: 158:    LATA = u8Temp;
 [e = _LATA _u8Temp ]
-"130
-[; ;user_app.c: 130:   u32DelayCounter = 1000000;
-[e = _u32DelayCounter -> -> 1000000 `l `ul ]
-"131
-[; ;user_app.c: 131:   while(u32DelayCounter != 0)
-[e $U 2275  ]
-[e :U 2276 ]
-"132
-[; ;user_app.c: 132:   {
+"161
+[; ;user_app.c: 161:    u8PatternIndex++;
+[e ++ F15944 -> -> 1 `i `uc ]
+"162
+[; ;user_app.c: 162:    if(u8PatternIndex == sizeof(au8Pattern))
+[e $ ! == -> F15944 `ui -> # F15943 `ui 2277  ]
+"163
+[; ;user_app.c: 163:    {
 {
-"133
-[; ;user_app.c: 133:     u32DelayCounter--;
-[e -- _u32DelayCounter -> -> -> 1 `i `l `ul ]
-"134
-[; ;user_app.c: 134:   }
+"164
+[; ;user_app.c: 164:      u8PatternIndex = 0;
+[e = F15944 -> -> 0 `i `uc ]
+"165
+[; ;user_app.c: 165:    }
 }
-[e :U 2275 ]
-"131
-[; ;user_app.c: 131:   while(u32DelayCounter != 0)
-[e $ != _u32DelayCounter -> -> -> 0 `i `l `ul 2276  ]
 [e :U 2277 ]
-"137
-[; ;user_app.c: 137: }
-[e :UE 2273 ]
+"166
+[; ;user_app.c: 166:   }
+}
+[e :U 2276 ]
+"168
+[; ;user_app.c: 168: }
+[e :UE 2275 ]
 }

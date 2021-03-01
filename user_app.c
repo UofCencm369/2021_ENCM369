@@ -54,6 +54,47 @@ Function Definitions
 /*! @publicsection */                                                                                            
 /*--------------------------------------------------------------------------------------------------------------------*/
 
+/*!--------------------------------------------------------------------------------------------------------------------
+@fn void TimeXus(u16 u16TimeXus_)
+
+@brief
+Sets Timer0 to count u16Microseconds_
+
+Requires:
+- Timer0 configured such that each timer tick is 1 microsecond
+
+Promises:
+- Pre-loads TMR0H:L to clock out desired period
+- TMR0IF cleared
+- Timer0 enabled
+
+*/
+void TimeXus(u16 u16TimeXus_)
+{
+  u16 u16Temp = 65535;
+  
+  /* Handle edge case */
+  if(u16TimeXus_ == 0)
+  {
+      PIR3bits.TMR0IF = 1;
+      return;
+  }
+  
+  /* Disable the timer during config */
+  T0CON0bits.EN = 0;
+  
+  /* Preload TMR0H and TMR0L based on u16TimeXus */
+  u16Temp -= u16TimeXus_;
+  TMR0H = (u8)( (u16Temp >> 8) & 0x00FF);
+  TMR0L = (u8)( u16Temp & 0x00FF);
+   
+  /* Clear TMR0IF and enable Timer 0 */
+  PIR3bits.TMR0IF = 0;
+  T0CON0bits.EN = 1;
+  
+} /* end TimeXus() */
+
+
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*! @protectedsection */                                                                                            
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -70,13 +111,18 @@ Requires:
 - NONE
 
 Promises:
-- Start with RA7 high, all else low
+- Start with RA6:0 low
 
 */
 void UserAppInitialize(void)
 {
-    LATA  = 0x80;
- 
+    /* LED initialization */
+    LATA &= 0xC0;
+    
+    /* Timer0 control register initialization to turn timer on, asynch mode, 16-bit
+     * Fosc/4, 1:x prescaler, 1:1 postscaler  */
+    T0CON0 = 0x90; // b'10010000'
+    T0CON1 = 0x54; // b'01010100'
 
 } /* end UserAppInitialize() */
 
@@ -95,46 +141,31 @@ Promises:
 */
 void UserAppRun(void)
 {
-  static u8 u8LedCounter = 0;
   u8 u8Temp;
-  u32 u32DelayCounter;
-  
-  /* Update the counter and check overflow */
-  u8LedCounter++;
-  if(u8LedCounter == 0x40)
-  {
-    u8LedCounter = 0;
-  }
-  
-  /* Update the PORTA LEDs being careful not to disturb RA7*/
+  static u16 u16SecondCounter = 0;
+  static u8 au8Pattern[] = {0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x10, 0x08, 0x04, 0x02};
+  static u8 u8PatternIndex = 0;
 
-  /* Option 1: clear the 6 LSBs then OR in the set bits of u8LedCounter.
-   * The problem with this, though, is that all of RA0:RA5 go low for a moment
-   * albeit a very short moment.  However, if those outputs were being watched,
-   * that could potentially cause serious issues. */
-#if 0
-  LATA &= 0xC0;
-  LATA |= u8LedCounter;
-#endif
-  /* Option 2: read the current values, update the bits of interest, then write them back. 
-   * This takes more code and requires a temp variable, but not to worry. */
-  u8Temp = PORTA;
-  u8Temp &= 0xC0;
-  u8Temp |= u8LedCounter;
-  LATA = u8Temp;
-  
-  /* Add the delay
-   * 16MHz clock, so 1/16MHz per instruction = 62.5ns / cycle.
-   * 250ms / 62.5ns = 4,000,000 cycles.
-   * 12 cycles per loop, so need 333,333 */
-  u32DelayCounter = 333333;
-  while(u32DelayCounter != 0)
+  u16SecondCounter++;
+  if(u16SecondCounter == 100)
   {
-    u32DelayCounter--;
-  }
-  
+    u16SecondCounter = 0;
+    
+    /* Update the LEDs */
+   u8Temp = LATA;
+   u8Temp &= 0xC0;
+   u8Temp |= au8Pattern[u8PatternIndex];
+   LATA = u8Temp;
 
-} /* end UserAppRun */
+   /* Update the pattern counter and wrap if at end of array */
+   u8PatternIndex++;
+   if(u8PatternIndex == sizeof(au8Pattern))
+   {
+     u8PatternIndex = 0;
+   }
+  }
+
+} /* end UserAppRun() */
 
 
 

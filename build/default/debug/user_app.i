@@ -27321,7 +27321,7 @@ typedef enum {ACTIVE_LOW = 0, ACTIVE_HIGH = 1} GpioActiveType;
 
 
 # 1 "./encm369_pic18.h" 1
-# 60 "./encm369_pic18.h"
+# 59 "./encm369_pic18.h"
 void ClockSetup(void);
 void GpioSetup(void);
 
@@ -27334,7 +27334,13 @@ void SystemSleep(void);
 
 
 # 1 "./user_app.h" 1
-# 27 "./user_app.h"
+# 22 "./user_app.h"
+void TimeXus(u16 u16TimeXus_);
+
+
+
+
+
 void UserAppInitialize(void);
 void UserAppRun(void);
 # 106 "./configuration.h" 2
@@ -27354,41 +27360,68 @@ volatile u8 G_u8UserAppFlags;
 extern volatile u32 G_u32SystemTime1ms;
 extern volatile u32 G_u32SystemTime1s;
 extern volatile u32 G_u32SystemFlags;
-# 76 "user_app.c"
-void UserAppInitialize(void)
+# 72 "user_app.c"
+void TimeXus(u16 u16TimeXus_)
 {
-    LATA = 0x80;
+  u16 u16Temp = 65535;
 
+
+  if(u16TimeXus_ == 0)
+  {
+      PIR3bits.TMR0IF = 1;
+      return;
+  }
+
+
+  T0CON0bits.EN = 0;
+
+
+  u16Temp -= u16TimeXus_;
+  TMR0H = (u8)( (u16Temp >> 8) & 0x00FF);
+  TMR0L = (u8)( u16Temp & 0x00FF);
+
+
+  PIR3bits.TMR0IF = 0;
+  T0CON0bits.EN = 1;
 
 }
-# 96 "user_app.c"
+# 117 "user_app.c"
+void UserAppInitialize(void)
+{
+
+    LATA &= 0xC0;
+
+
+
+    T0CON0 = 0x90;
+    T0CON1 = 0x54;
+
+}
+# 142 "user_app.c"
 void UserAppRun(void)
 {
-  static u8 u8LedCounter = 0;
   u8 u8Temp;
-  u32 u32DelayCounter;
+  static u16 u16SecondCounter = 0;
+  static u8 au8Pattern[] = {0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0x10, 0x08, 0x04, 0x02};
+  static u8 u8PatternIndex = 0;
 
-
-  u8LedCounter++;
-  if(u8LedCounter == 0x40)
+  u16SecondCounter++;
+  if(u16SecondCounter == 100)
   {
-    u8LedCounter = 0;
+    u16SecondCounter = 0;
+
+
+   u8Temp = LATA;
+   u8Temp &= 0xC0;
+   u8Temp |= au8Pattern[u8PatternIndex];
+   LATA = u8Temp;
+
+
+   u8PatternIndex++;
+   if(u8PatternIndex == sizeof(au8Pattern))
+   {
+     u8PatternIndex = 0;
+   }
   }
-# 121 "user_app.c"
-  u8Temp = PORTA;
-  u8Temp &= 0xC0;
-  u8Temp |= u8LedCounter;
-  LATA = u8Temp;
-
-
-
-
-
-  u32DelayCounter = 333333;
-  while(u32DelayCounter != 0)
-  {
-    u32DelayCounter--;
-  }
-
 
 }
