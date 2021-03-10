@@ -52,20 +52,28 @@ void main(void)
   while(1)
   {
     /* Drivers */
-       
+
+#if 1 /* Trying to run as fast as possible */
+    /* Set the timer and wait out the period */
+    TimeXus(2);
+    while( PIR3bits.TMR0IF == 0 );
+    DAC1DATL += 1;
+#endif
+
+#if 0     
     /* Applications */
     UserAppRun();
    
-     
     /* System sleep */
     HEARTBEAT_OFF();
     SystemSleep();
     
-    /* Set the timer for 1ms and wait out the period */
-    TimeXus(1000);
+    /* Set the timer and wait out the period */
+    TimeXus(2);
     while( PIR3bits.TMR0IF == 0 );
   
     HEARTBEAT_ON();
+#endif
     
   } /* end while(1) main super loop */
   

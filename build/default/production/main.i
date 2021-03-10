@@ -27383,19 +27383,11 @@ void main(void)
 
 
 
-    UserAppRun();
 
-
-
-    (LATA &= 0x7F);
-    SystemSleep();
-
-
-    TimeXus(1000);
+    TimeXus(2);
     while( PIR3bits.TMR0IF == 0 );
-
-    (LATA |= 0x80);
-
+    DAC1DATL += 1;
+# 78 "main.c"
   }
 
 }

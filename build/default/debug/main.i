@@ -27391,7 +27391,7 @@ void main(void)
     SystemSleep();
 
 
-    TimeXus(1000);
+    TimeXus(4);
     while( PIR3bits.TMR0IF == 0 );
 
     (LATA |= 0x80);
