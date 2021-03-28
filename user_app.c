@@ -30,21 +30,11 @@ Global variable definitions with scope across entire project.
 All Global variable names shall start with "G_<type>UserApp1"
 ***********************************************************************************************************************/
 /* New variables */
-volatile u8 G_u8UserAppFlags;                             /*!< @brief Global state flags */
+volatile u8 G_u8UserAppFlags;                  /*!< @brief Global state flags */
+volatile u8 G_u8UserAppTimePeriodHi;           /*!< @brief Global saved Timer1 high count for ISR */
+volatile u8 G_u8UserAppTimePeriodLo;           /*!< @brief Global saved Timer1 low count for ISR */
 
-
-/*--------------------------------------------------------------------------------------------------------------------*/
-/* Existing variables (defined in other files -- should all contain the "extern" keyword) */
-extern volatile u32 G_u32SystemTime1ms;                   /*!< @brief From main.c */
-extern volatile u32 G_u32SystemTime1s;                    /*!< @brief From main.c */
-extern volatile u32 G_u32SystemFlags;                     /*!< @brief From main.c */
-
-
-/***********************************************************************************************************************
-Global variable definitions with scope limited to this local application.
-Variable names shall start with "UserApp_<type>" and be declared as static.
-***********************************************************************************************************************/
-static u8 UserApp_au8sinTable[] = 
+u8 G_au8UserAppsinTable[] = 
 {
 0x80,0x83,0x86,0x89,0x8c,0x8f,0x92,0x95,0x98,0x9b,0x9e,0xa2,0xa5,0xa7,0xaa,0xad,
 0xb0,0xb3,0xb6,0xb9,0xbc,0xbe,0xc1,0xc4,0xc6,0xc9,0xcb,0xce,0xd0,0xd3,0xd5,0xd7,
@@ -64,6 +54,20 @@ static u8 UserApp_au8sinTable[] =
 0x4f,0x52,0x55,0x58,0x5a,0x5d,0x61,0x64,0x67,0x6a,0x6d,0x70,0x73,0x76,0x79,0x7c   
 };
 
+
+/*--------------------------------------------------------------------------------------------------------------------*/
+/* Existing variables (defined in other files -- should all contain the "extern" keyword) */
+extern volatile u32 G_u32SystemTime1ms;                   /*!< @brief From main.c */
+extern volatile u32 G_u32SystemTime1s;                    /*!< @brief From main.c */
+extern volatile u32 G_u32SystemFlags;                     /*!< @brief From main.c */
+
+
+/***********************************************************************************************************************
+Global variable definitions with scope limited to this local application.
+Variable names shall start with "UserApp_<type>" and be declared as static.
+***********************************************************************************************************************/
+
+
 /**********************************************************************************************************************
 Function Definitions
 **********************************************************************************************************************/
@@ -76,7 +80,7 @@ Function Definitions
 @fn void TimeXus(u16 u16TimeXus_)
 
 @brief
-Sets Timer0 to count u16Microseconds_
+Sets up Timer0 to provide an interrupt at u16Microseconds_
 
 Requires:
 - Timer0 configured such that each timer tick is 1 microsecond
@@ -115,6 +119,69 @@ void TimeXus(u16 u16TimeXus_)
 } /* end TimeXus() */
 
 
+/*!--------------------------------------------------------------------------------------------------------------------
+@fn void InterruptTimerXus(u16 u16TimeXus_, bool bContinuous_)
+
+@brief
+Maximum 32,767us.  Arguments higher than this will be capped back.
+Sets up Timer1 to provide an interrupt every u16TimeXus_ microseconds.
+This can be configured as a single event, or continuous.
+Note: it would be much better to pass a call-back function
+parameter to this function to register the call-back for the ISR
+to use, but we'll hard-code it for now.
+
+Requires:
+- Timer1 configured such that each timer tick is 0.5 microseconds
+- TMR1_ISR holds code to respond to the interrupt
+- bContinuous_ is true if the timer should run continuously;
+  false if it should run once and stop.
+
+Promises:
+- Pre-loads TMR1H:L to clock out desired period
+- G_u8UserAppTimePeriodHi/Lo updated to save period
+- _U8_CONTINUOUS updated per bContinuous_
+- TMR1IF cleared and interrupt enabled
+- Timer1 enabled
+
+*/
+void InterruptTimerXus(u16 u16TimeXus_, bool bContinuous_)
+{
+  u16 u16Temp;
+
+  /* Disable the timer during config */
+  T1CONbits.ON = 0;
+  
+  /* Correct the input parameter if it's too high */
+  if(u16TimeXus_ > 32767)
+  {
+    u16TimeXus_ = 32767;
+  }
+
+  /* Double the time so it's in us not 0.5us*/
+  u16Temp = u16TimeXus_ << 1;
+   
+  /* Calculate, save, and preload TMR1H and TMR1L based on u16TimeXus_ */
+  u16Temp = 65535 - u16TimeXus_;
+  G_u8UserAppTimePeriodHi = (u8)( (u16Temp >> 8) & 0x00FF);
+  G_u8UserAppTimePeriodLo = (u8)( u16Temp & 0x00FF);
+  TMR1H = G_u8UserAppTimePeriodHi;
+  TMR1L = G_u8UserAppTimePeriodLo;
+  
+  /* Flag continuous mode if required */
+  G_u8UserAppFlags &= ~_U8_CONTINUOUS;
+  if(bContinuous_)
+  {
+    G_u8UserAppFlags |= _U8_CONTINUOUS;
+  }
+  
+  /* Clear the interrupt flag, enable interrupt and enable Timer */
+  PIR3bits.TMR1IF = 0;
+  PIE3bits.TMR1IE = 1;
+  T1CONbits.ON = 1;
+  
+} /* end InterruptTimerXus() */
+
+
 /*--------------------------------------------------------------------------------------------------------------------*/
 /*! @protectedsection */                                                                                            
 /*--------------------------------------------------------------------------------------------------------------------*/
@@ -143,7 +210,16 @@ void UserAppInitialize(void)
      * Fosc/4, 1:16 prescaler, 1:1 postscaler  */
     T0CON0 = 0x90; // b'10010000'
     T0CON1 = 0x54; // b'01010100'
-
+    
+    /* Timer1 initialization:
+     * 1:8 prescale, synced, enabled */
+    T1GCON = 0x00;
+    T1CLK  = 0x01;  
+    T1CON  = 0x31;  // b'00110001'
+    
+    // Test call to set frequency
+    InterruptTimerXus(16, true);
+    
 } /* end UserAppInitialize() */
 
   
@@ -161,34 +237,45 @@ Promises:
 */
 void UserAppRun(void)
 {
-  static u8 u8Index = 0;
- 
-#if 0 /* Task 2: Sinusoid */
-  DAC1DATL = UserApp_au8sinTable[u8Index];
-  u8Index += 4; /* Rollover back to 0 is correct and intended */
-#endif
+  static u16 au16Notes[] = {C4, C4, G4, G4, A4, A4, G4, F4, F4, E4, E4, D4, D4, C4, NN};
+  static u16 au16Times[] = {N4, N4, N4, N4, N4, N4, N2, N4, N4, N4, N4, N4, N4, N2, N1};
+
+  static u16 u16TimeToNoteChange = 1;
+  static u8  u8Index = 255;
   
-#if 1 /* Task 1: Triangle wave */
-  static bool bDirectionUp = true;
-  
-  if(bDirectionUp)
+  u8 u8Temp;
+   
+  u16TimeToNoteChange--;
+  if(u16TimeToNoteChange == 0)
   {
-    DAC1DATL++;
-    if(DAC1DATL == 0xff)
+    /* Increment index and check for wrap around */
+    u8Index++;
+    if(u8Index == sizeof(au16Times) / sizeof(u16) )
     {
-      bDirectionUp = false;
+      u8Index = 0;
     }
-  
-  }
-  else
-  {
-    DAC1DATL--;
-    if(DAC1DATL == 0)
+    
+    /* Update the current frequency and time counter */
+    u16TimeToNoteChange = au16Times[u8Index];
+    
+    if(au16Notes[u8Index] == NN)
     {
-      bDirectionUp = true;
-    }    
-  }      
-#endif 
+      PIE3bits.TMR1IE = 0;
+      T1CONbits.ON = 0;
+    }
+    else
+    {
+      InterruptTimerXus(au16Notes[u8Index], true);
+    }
+    
+  }
+  
+  /* Turn off the note close to the end */
+  if(u16TimeToNoteChange == REGULAR_NOTE_ADJUSTMENT)
+  {
+    PIE3bits.TMR1IE = 0;
+    T1CONbits.ON = 0;    
+  }
   
 } /* end UserAppRun() */
 

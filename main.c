@@ -5,7 +5,6 @@
 
 #include "configuration.h"
 
-
 /***********************************************************************************************************************
 Global variable definitions with scope across entire project.
 All Global variable names shall start with "G_"
@@ -13,7 +12,7 @@ All Global variable names shall start with "G_"
 /* New variables */
 volatile u32 G_u32SystemTime1ms = 0;     /*!< @brief Global system time incremented every ms, max 2^32 (~49 days) */
 volatile u32 G_u32SystemTime1s  = 0;     /*!< @brief Global system time incremented every second, max 2^32 (~136 years) */
-volatile u32 G_u32SystemFlags   = 0;     /*!< @brief Global system flags */
+volatile u8  G_u8SystemFlags    = 0;     /*!< @brief Global system flags */
 
 /*--------------------------------------------------------------------------------------------------------------------*/
 /* External global variables defined in other files (must indicate which file they are defined in) */
@@ -34,46 +33,35 @@ Variable names shall start with "Main_" and be declared as static.
 
 void main(void)
 {
-  G_u32SystemFlags |= _SYSTEM_INITIALIZING;
+  G_u8SystemFlags |= _SYSTEM_INITIALIZING;
 
   /* Low level initialization */
   ClockSetup();
-  SysTickSetup();
   GpioSetup();
-  
+  InterruptSetup();
+
+  SysTickSetup();
+
   /* Driver initialization */
  
   /* Application initialization */
   UserAppInitialize();
   
   /* Exit initialization */
+  G_u8SystemFlags &= ~_SYSTEM_INITIALIZING;
     
   /* Super loop */  
   while(1)
   {
     /* Drivers */
-
-#if 1 /* Trying to run as fast as possible */
-    /* Set the timer and wait out the period */
-    TimeXus(2);
-    while( PIR3bits.TMR0IF == 0 );
-    DAC1DATL += 1;
-#endif
-
-#if 0     
+    
     /* Applications */
-    UserAppRun();
-   
+    //UserAppRun();
+    
     /* System sleep */
     HEARTBEAT_OFF();
-    SystemSleep();
-    
-    /* Set the timer and wait out the period */
-    TimeXus(2);
-    while( PIR3bits.TMR0IF == 0 );
-  
+    SystemSleep();     
     HEARTBEAT_ON();
-#endif
     
   } /* end while(1) main super loop */
   

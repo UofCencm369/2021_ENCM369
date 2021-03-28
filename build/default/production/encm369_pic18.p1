@@ -11,12 +11,46 @@ Version 4.0 HI-TECH Software Intermediate Code
 "3158
 [; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 3158: extern volatile unsigned char DAC1DATL __attribute__((address(0x07D)));
 [v _DAC1DATL `Vuc ~T0 @X0 0 e@125 ]
-"37 encm369_pic18.c
-[; ;encm369_pic18.c: 37: extern volatile u32 G_u32SystemTime1ms;
+"38 encm369_pic18.c
+[; ;encm369_pic18.c: 38: extern volatile u32 G_u32SystemTime1ms;
 [v _G_u32SystemTime1ms `Vul ~T0 @X0 0 e ]
-"38
-[; ;encm369_pic18.c: 38: extern volatile u32 G_u32SystemTime1s;
+"39
+[; ;encm369_pic18.c: 39: extern volatile u32 G_u32SystemTime1s;
 [v _G_u32SystemTime1s `Vul ~T0 @X0 0 e ]
+"23805 C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 23805: extern volatile unsigned char T2PR __attribute__((address(0x323)));
+[v _T2PR `Vuc ~T0 @X0 0 e@803 ]
+"24117
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 24117: extern volatile unsigned char T2CLKCON __attribute__((address(0x326)));
+[v _T2CLKCON `Vuc ~T0 @X0 0 e@806 ]
+"44876
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 44876:     struct {
+[s S2125 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2125 . SPI1RXIF SPI1TXIF SPI1IF TMR2IF TMR1IF TMR1GIF CCP1IF TMR0IF ]
+"44875
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 44875: typedef union {
+[u S2124 `S2125 1 ]
+[n S2124 . . ]
+"44887
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 44887: extern volatile PIR3bits_t PIR3bits __attribute__((address(0x4B1)));
+[v _PIR3bits `VS2124 ~T0 @X0 0 e@1201 ]
+"23843
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 23843: extern volatile unsigned char T2CON __attribute__((address(0x324)));
+[v _T2CON `Vuc ~T0 @X0 0 e@804 ]
+"44002
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 44002:     struct {
+[s S2093 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S2093 . SPI1RXIE SPI1TXIE SPI1IE TMR2IE TMR1IE TMR1GIE CCP1IE TMR0IE ]
+"44001
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 44001: typedef union {
+[u S2092 `S2093 1 ]
+[n S2092 . . ]
+"44013
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 44013: extern volatile PIE3bits_t PIE3bits __attribute__((address(0x4A1)));
+[v _PIE3bits `VS2092 ~T0 @X0 0 e@1185 ]
+"40 encm369_pic18.c
+[; ;encm369_pic18.c: 40: extern volatile u8 G_u8SystemFlags;
+[v _G_u8SystemFlags `Vuc ~T0 @X0 0 e ]
 "30 ./configuration.h
 [p x FEXTOSC  =  OFF     ]
 "31
@@ -2538,69 +2572,94 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47642
 [; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 47642: __asm("TOSU equ 04FFh");
 [; <" TOSU equ 04FFh ;# ">
-"70 encm369_pic18.c
-[; ;encm369_pic18.c: 70: void ClockSetup(void)
+"71 encm369_pic18.c
+[; ;encm369_pic18.c: 71: void ClockSetup(void)
 [v _ClockSetup `(v ~T0 @X0 1 ef ]
-"71
-[; ;encm369_pic18.c: 71: {
+"72
+[; ;encm369_pic18.c: 72: {
 {
 [e :U _ClockSetup ]
 [f ]
-"74
-[; ;encm369_pic18.c: 74: }
+"75
+[; ;encm369_pic18.c: 75: }
 [e :UE 2272 ]
 }
-"89
-[; ;encm369_pic18.c: 89: void GpioSetup(void)
-[v _GpioSetup `(v ~T0 @X0 1 ef ]
 "90
-[; ;encm369_pic18.c: 90: {
+[; ;encm369_pic18.c: 90: void GpioSetup(void)
+[v _GpioSetup `(v ~T0 @X0 1 ef ]
+"91
+[; ;encm369_pic18.c: 91: {
 {
 [e :U _GpioSetup ]
 [f ]
-"92
-[; ;encm369_pic18.c: 92:   ANSELA = 0x00;
-[e = _ANSELA -> -> 0 `i `uc ]
 "93
-[; ;encm369_pic18.c: 93:   TRISA = 0x00;
+[; ;encm369_pic18.c: 93:   ANSELA = 0x00;
+[e = _ANSELA -> -> 0 `i `uc ]
+"94
+[; ;encm369_pic18.c: 94:   TRISA = 0x00;
 [e = _TRISA -> -> 0 `i `uc ]
-"96
-[; ;encm369_pic18.c: 96:   DAC1CON = 0xA0;
-[e = _DAC1CON -> -> 160 `i `uc ]
 "97
-[; ;encm369_pic18.c: 97:   DAC1DATL = 0;
+[; ;encm369_pic18.c: 97:   DAC1CON = 0xA0;
+[e = _DAC1CON -> -> 160 `i `uc ]
+"98
+[; ;encm369_pic18.c: 98:   DAC1DATL = 0;
 [e = _DAC1DATL -> -> 0 `i `uc ]
-"99
-[; ;encm369_pic18.c: 99: }
+"100
+[; ;encm369_pic18.c: 100: }
 [e :UE 2273 ]
 }
-"114
-[; ;encm369_pic18.c: 114: void SysTickSetup(void)
-[v _SysTickSetup `(v ~T0 @X0 1 ef ]
 "115
-[; ;encm369_pic18.c: 115: {
+[; ;encm369_pic18.c: 115: void SysTickSetup(void)
+[v _SysTickSetup `(v ~T0 @X0 1 ef ]
+"116
+[; ;encm369_pic18.c: 116: {
 {
 [e :U _SysTickSetup ]
 [f ]
-"116
-[; ;encm369_pic18.c: 116:   G_u32SystemTime1ms = 0;
-[e = _G_u32SystemTime1ms -> -> -> 0 `i `l `ul ]
 "117
-[; ;encm369_pic18.c: 117:   G_u32SystemTime1s = 0;
+[; ;encm369_pic18.c: 117:   G_u32SystemTime1ms = 0;
+[e = _G_u32SystemTime1ms -> -> -> 0 `i `l `ul ]
+"118
+[; ;encm369_pic18.c: 118:   G_u32SystemTime1s = 0;
 [e = _G_u32SystemTime1s -> -> -> 0 `i `l `ul ]
-"119
-[; ;encm369_pic18.c: 119: }
+"126
+[; ;encm369_pic18.c: 126:   T2PR = 125;
+[e = _T2PR -> -> 125 `i `uc ]
+"127
+[; ;encm369_pic18.c: 127:   T2CLKCON = 0x01;
+[e = _T2CLKCON -> -> 1 `i `uc ]
+"128
+[; ;encm369_pic18.c: 128:   PIR3bits.TMR2IF = 0;
+[e = . . _PIR3bits 0 3 -> -> 0 `i `uc ]
+"129
+[; ;encm369_pic18.c: 129:   T2CON = 0xF0;
+[e = _T2CON -> -> 240 `i `uc ]
+"131
+[; ;encm369_pic18.c: 131:   PIE3bits.TMR2IE = 1;
+[e = . . _PIE3bits 0 3 -> -> 1 `i `uc ]
+"133
+[; ;encm369_pic18.c: 133: }
 [e :UE 2274 ]
 }
-"136
-[; ;encm369_pic18.c: 136: void SystemSleep(void)
+"150
+[; ;encm369_pic18.c: 150: void SystemSleep(void)
 [v _SystemSleep `(v ~T0 @X0 1 ef ]
-"137
-[; ;encm369_pic18.c: 137: {
+"151
+[; ;encm369_pic18.c: 151: {
 {
 [e :U _SystemSleep ]
 [f ]
-"139
-[; ;encm369_pic18.c: 139: }
+"152
+[; ;encm369_pic18.c: 152:   G_u8SystemFlags |= (u8)0x40;
+[e =| _G_u8SystemFlags -> -> -> 64 `i `uc `Vuc ]
+"153
+[; ;encm369_pic18.c: 153:   while(G_u8SystemFlags & (u8)0x40);
+[e $U 2276  ]
+[e :U 2277 ]
+[e :U 2276 ]
+[e $ != & -> _G_u8SystemFlags `i -> -> -> 64 `i `uc `i -> 0 `i 2277  ]
+[e :U 2278 ]
+"155
+[; ;encm369_pic18.c: 155: }
 [e :UE 2275 ]
 }

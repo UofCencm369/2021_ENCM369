@@ -58,7 +58,7 @@
 
 
 #pragma config CP = OFF
-# 87 "./configuration.h"
+# 88 "./configuration.h"
 # 1 "C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -27270,10 +27270,12 @@ __attribute__((__unsupported__("The READTIMER" "3" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\\pic\\include\\xc.h" 2 3
-# 87 "./configuration.h" 2
-# 96 "./configuration.h"
+# 88 "./configuration.h" 2
+
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2_31\\pic\\include\\c99\\stdbool.h" 1 3
-# 96 "./configuration.h" 2
+# 90 "./configuration.h" 2
+
 
 # 1 "./typedefs.h" 1
 # 31 "./typedefs.h"
@@ -27313,25 +27315,33 @@ typedef void(*fnCode_u16_type)(u16 x);
 
 
 typedef enum {ACTIVE_LOW = 0, ACTIVE_HIGH = 1} GpioActiveType;
-# 97 "./configuration.h" 2
+# 92 "./configuration.h" 2
+
+# 1 "./interrupts.h" 1
+# 27 "./interrupts.h"
+void InterruptSetup(void);
+# 93 "./configuration.h" 2
 
 # 1 "./main.h" 1
-# 98 "./configuration.h" 2
+# 94 "./configuration.h" 2
 
 
 
 # 1 "./encm369_pic18.h" 1
-# 59 "./encm369_pic18.h"
+# 58 "./encm369_pic18.h"
 void ClockSetup(void);
 void GpioSetup(void);
 
 void SysTickSetup(void);
 void SystemSleep(void);
-# 101 "./configuration.h" 2
+# 97 "./configuration.h" 2
 
 
 
 
+
+# 1 "./music.h" 1
+# 102 "./configuration.h" 2
 
 # 1 "./user_app.h" 1
 # 22 "./user_app.h"
@@ -27343,7 +27353,7 @@ void TimeXus(u16 u16TimeXus_);
 
 void UserAppInitialize(void);
 void UserAppRun(void);
-# 106 "./configuration.h" 2
+# 103 "./configuration.h" 2
 # 26 "user_app.c" 2
 
 
@@ -27353,20 +27363,10 @@ void UserAppRun(void);
 
 
 volatile u8 G_u8UserAppFlags;
+volatile u8 G_u8UserAppTimePeriodHi;
+volatile u8 G_u8UserAppTimePeriodLo;
 
-
-
-
-extern volatile u32 G_u32SystemTime1ms;
-extern volatile u32 G_u32SystemTime1s;
-extern volatile u32 G_u32SystemFlags;
-
-
-
-
-
-
-static u8 UserApp_au8sinTable[] =
+u8 G_au8UserAppsinTable[] =
 {
 0x80,0x83,0x86,0x89,0x8c,0x8f,0x92,0x95,0x98,0x9b,0x9e,0xa2,0xa5,0xa7,0xaa,0xad,
 0xb0,0xb3,0xb6,0xb9,0xbc,0xbe,0xc1,0xc4,0xc6,0xc9,0xcb,0xce,0xd0,0xd3,0xd5,0xd7,
@@ -27385,11 +27385,18 @@ static u8 UserApp_au8sinTable[] =
 0x25,0x28,0x2a,0x2c,0x2f,0x31,0x34,0x36,0x39,0x3b,0x3e,0x41,0x43,0x46,0x49,0x4c,
 0x4f,0x52,0x55,0x58,0x5a,0x5d,0x61,0x64,0x67,0x6a,0x6d,0x70,0x73,0x76,0x79,0x7c
 };
-# 90 "user_app.c"
+
+
+
+
+extern volatile u32 G_u32SystemTime1ms;
+extern volatile u32 G_u32SystemTime1s;
+extern volatile u32 G_u32SystemFlags;
+# 94 "user_app.c"
 void TimeXus(u16 u16TimeXus_)
 {
   u16 u16Temp = 65535;
-# 104 "user_app.c"
+# 108 "user_app.c"
   T0CON0bits.EN = 0;
 
 
@@ -27402,7 +27409,44 @@ void TimeXus(u16 u16TimeXus_)
   T0CON0bits.EN = 1;
 
 }
-# 137 "user_app.c"
+# 147 "user_app.c"
+void InterruptTimerXus(u16 u16TimeXus_, _Bool bContinuous_)
+{
+  u16 u16Temp;
+
+
+  T1CONbits.ON = 0;
+
+
+  if(u16TimeXus_ > 32767)
+  {
+    u16TimeXus_ = 32767;
+  }
+
+
+  u16Temp = u16TimeXus_ << 1;
+
+
+  u16Temp = 65535 - u16TimeXus_;
+  G_u8UserAppTimePeriodHi = (u8)( (u16Temp >> 8) & 0x00FF);
+  G_u8UserAppTimePeriodLo = (u8)( u16Temp & 0x00FF);
+  TMR1H = G_u8UserAppTimePeriodHi;
+  TMR1L = G_u8UserAppTimePeriodLo;
+
+
+  G_u8UserAppFlags &= ~(u8)0x01;
+  if(bContinuous_)
+  {
+    G_u8UserAppFlags |= (u8)0x01;
+  }
+
+
+  PIR3bits.TMR1IF = 0;
+  PIE3bits.TMR1IE = 1;
+  T1CONbits.ON = 1;
+
+}
+# 204 "user_app.c"
 void UserAppInitialize(void)
 {
 
@@ -27413,37 +27457,57 @@ void UserAppInitialize(void)
     T0CON0 = 0x90;
     T0CON1 = 0x54;
 
+
+
+    T1GCON = 0x00;
+    T1CLK = 0x01;
+    T1CON = 0x31;
+
+
+    InterruptTimerXus(16, 1);
+
 }
-# 162 "user_app.c"
+# 238 "user_app.c"
 void UserAppRun(void)
 {
-  static u8 u8Index = 0;
+  static u16 au16Notes[] = {(u16)(u16)60, (u16)(u16)60, (u16)(u16)40, (u16)(u16)40, (u16)(u16)36, (u16)(u16)36, (u16)(u16)40, (u16)(u16)45, (u16)(u16)45, (u16)(u16)47, (u16)(u16)47, (u16)(u16)53, (u16)(u16)53, (u16)(u16)60, (u16)(u16)0};
+  static u16 au16Times[] = {(u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 2), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 4), (u16)((u16)2048 / 2), (u16)((u16)2048)};
 
+  static u16 u16TimeToNoteChange = 1;
+  static u8 u8Index = 255;
 
+  u8 u8Temp;
 
-
-
-
-
-  static _Bool bDirectionUp = 1;
-
-  if(bDirectionUp)
+  u16TimeToNoteChange--;
+  if(u16TimeToNoteChange == 0)
   {
-    DAC1DATL++;
-    if(DAC1DATL == 0xff)
+
+    u8Index++;
+    if(u8Index == sizeof(au16Times) / sizeof(u16) )
     {
-      bDirectionUp = 0;
+      u8Index = 0;
+    }
+
+
+    u16TimeToNoteChange = au16Times[u8Index];
+
+    if(au16Notes[u8Index] == (u16)(u16)0)
+    {
+      PIE3bits.TMR1IE = 0;
+      T1CONbits.ON = 0;
+    }
+    else
+    {
+      InterruptTimerXus(au16Notes[u8Index], 1);
     }
 
   }
-  else
-  {
-    DAC1DATL--;
-    if(DAC1DATL == 0)
-    {
-      bDirectionUp = 1;
-    }
-  }
 
+
+  if(u16TimeToNoteChange == (u16)50)
+  {
+    PIE3bits.TMR1IE = 0;
+    T1CONbits.ON = 0;
+  }
 
 }

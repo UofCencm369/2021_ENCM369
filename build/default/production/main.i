@@ -62,7 +62,7 @@
 
 
 #pragma config CP = OFF
-# 87 "./configuration.h"
+# 88 "./configuration.h"
 # 1 "C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\\pic\\include\\xc.h" 3
 extern const char __xc8_OPTIM_SPEED;
@@ -27274,10 +27274,12 @@ __attribute__((__unsupported__("The READTIMER" "3" "() macro is not available wi
 unsigned char __t1rd16on(void);
 unsigned char __t3rd16on(void);
 # 34 "C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\\pic\\include\\xc.h" 2 3
-# 87 "./configuration.h" 2
-# 96 "./configuration.h"
+# 88 "./configuration.h" 2
+
+
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2_31\\pic\\include\\c99\\stdbool.h" 1 3
-# 96 "./configuration.h" 2
+# 90 "./configuration.h" 2
+
 
 # 1 "./typedefs.h" 1
 # 31 "./typedefs.h"
@@ -27317,25 +27319,33 @@ typedef void(*fnCode_u16_type)(u16 x);
 
 
 typedef enum {ACTIVE_LOW = 0, ACTIVE_HIGH = 1} GpioActiveType;
-# 97 "./configuration.h" 2
+# 92 "./configuration.h" 2
+
+# 1 "./interrupts.h" 1
+# 27 "./interrupts.h"
+void InterruptSetup(void);
+# 93 "./configuration.h" 2
 
 # 1 "./main.h" 1
-# 98 "./configuration.h" 2
+# 94 "./configuration.h" 2
 
 
 
 # 1 "./encm369_pic18.h" 1
-# 59 "./encm369_pic18.h"
+# 58 "./encm369_pic18.h"
 void ClockSetup(void);
 void GpioSetup(void);
 
 void SysTickSetup(void);
 void SystemSleep(void);
-# 101 "./configuration.h" 2
+# 97 "./configuration.h" 2
 
 
 
 
+
+# 1 "./music.h" 1
+# 102 "./configuration.h" 2
 
 # 1 "./user_app.h" 1
 # 22 "./user_app.h"
@@ -27347,9 +27357,8 @@ void TimeXus(u16 u16TimeXus_);
 
 void UserAppInitialize(void);
 void UserAppRun(void);
-# 106 "./configuration.h" 2
+# 103 "./configuration.h" 2
 # 6 "main.c" 2
-
 
 
 
@@ -27359,16 +27368,18 @@ void UserAppRun(void);
 
 volatile u32 G_u32SystemTime1ms = 0;
 volatile u32 G_u32SystemTime1s = 0;
-volatile u32 G_u32SystemFlags = 0;
-# 35 "main.c"
+volatile u8 G_u8SystemFlags = 0;
+# 34 "main.c"
 void main(void)
 {
-  G_u32SystemFlags |= (u32)0x80000000;
+  G_u8SystemFlags |= (u8)0x80;
 
 
   ClockSetup();
-  SysTickSetup();
   GpioSetup();
+  InterruptSetup();
+
+  SysTickSetup();
 
 
 
@@ -27376,6 +27387,7 @@ void main(void)
   UserAppInitialize();
 
 
+  G_u8SystemFlags &= ~(u8)0x80;
 
 
   while(1)
@@ -27384,10 +27396,12 @@ void main(void)
 
 
 
-    TimeXus(2);
-    while( PIR3bits.TMR0IF == 0 );
-    DAC1DATL += 1;
-# 78 "main.c"
+
+
+    (LATA &= 0x7F);
+    SystemSleep();
+    (LATA |= 0x80);
+
   }
 
 }

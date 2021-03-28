@@ -15,7 +15,6 @@ Bookmarks:
 !!!!! GPIO pin names
 @@@@@ Watchdog, Power Control, Clock, and Systick setup values
 ##### GPIO initial setup values
-$$$$$ PWM setup values
 
 ***********************************************************************************************************************/
 /*! @endcond */
@@ -127,7 +126,7 @@ void SystemSleep(void);
 
 
 
-#endif /* __EIEF1 */
+#endif /* __ENCM369_H */
 
 
 

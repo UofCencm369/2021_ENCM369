@@ -1,4 +1,4 @@
-# 1 "main.c"
+# 1 "interrupts.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,12 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "main.c" 2
-
-
-
-
-
+# 1 "interrupts.c" 2
+# 26 "interrupts.c"
 # 1 "./configuration.h" 1
 # 30 "./configuration.h"
 #pragma config FEXTOSC = OFF
@@ -27358,50 +27354,98 @@ void TimeXus(u16 u16TimeXus_);
 void UserAppInitialize(void);
 void UserAppRun(void);
 # 103 "./configuration.h" 2
-# 6 "main.c" 2
+# 27 "interrupts.c" 2
+# 37 "interrupts.c"
+extern volatile u32 G_u32SystemTime1ms;
+extern volatile u32 G_u32SystemTime1s;
+extern volatile u8 G_u8SystemFlags;
 
+extern volatile u8 G_u8UserAppFlags;
+extern volatile u8 G_u8UserAppTimePeriodHi;
+extern volatile u8 G_u8UserAppTimePeriodLo;
 
-
-
-
-
-
-volatile u32 G_u32SystemTime1ms = 0;
-volatile u32 G_u32SystemTime1s = 0;
-volatile u8 G_u8SystemFlags = 0;
-# 34 "main.c"
-void main(void)
+extern u8 G_au8UserAppsinTable[];
+# 74 "interrupts.c"
+void InterruptSetup(void)
 {
-  G_u8SystemFlags |= (u8)0x80;
+
+  INTCON0bits.IPEN = 1;
 
 
-  ClockSetup();
-  GpioSetup();
-  InterruptSetup();
+  INTCON0bits.GIEH = 1;
+  INTCON0bits.GIEL = 1;
 
-  SysTickSetup();
-
+}
 
 
+void __attribute__((picinterrupt(("irq(0), high_priority")))) SW_ISR(void)
+{
+  PIR0bits.SWIF = 0;
 
-  UserAppInitialize();
+}
 
 
-  G_u8SystemFlags &= ~(u8)0x80;
+void __attribute__((picinterrupt(("irq(default), low_priority")))) DEFAULT_ISR(void)
+{
 
 
-  while(1)
+
+
+  static u32 u32UnhandledCounter = 0;
+
+  u32UnhandledCounter++;
+
+
+
+
+}
+
+
+
+
+
+void __attribute__((picinterrupt(("irq(28), high_priority")))) TMR1_ISR(void)
+{
+  static u8 u8Index = 0;
+
+
+  TMR1H = G_u8UserAppTimePeriodHi;
+  TMR1L = G_u8UserAppTimePeriodLo;
+
+
+
+
+
+
+  DAC1DATL = G_au8UserAppsinTable[u8Index];
+  u8Index += 4;
+
+
+
+
+
+
+
+  PIR3bits.TMR1IF = 0;
+
+
+  if( !(G_u8UserAppFlags & (u8)0x01) )
   {
-
-
-
-
-
-
-    (LATA &= 0x7F);
-    SystemSleep();
-    (LATA |= 0x80);
-
+    PIE3bits.TMR1IE = 0;
+    T1CONbits.ON = 0;
   }
 
+}
+
+
+
+void __attribute__((picinterrupt(("irq(27), high_priority")))) TMR2_ISR(void)
+{
+
+  PIR3bits.TMR2IF = 0;
+  G_u8SystemFlags &= ~(u8)0x40;
+
+
+  G_u32SystemTime1ms++;
+# 163 "interrupts.c"
 }

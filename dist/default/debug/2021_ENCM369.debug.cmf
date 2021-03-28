@@ -11,28 +11,33 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
-$C:\Users\ENGENU~1\AppData\Local\Temp\sar4.o
+$C:\Users\ENGENU~1\AppData\Local\Temp\s41s.o
 idloc IDLOC 5 200000 200000 20 1
-init CODE 0 1FFFC 1FFFC 4 1
+init CODE 0 102 102 4 1
 reset_vec CODE 0 0 0 4 1
 config CONFIG 4 300000 300000 A 1
 $dist/default/debug\2021_ENCM369.debug.o
-cinit CODE 0 1FEB2 1FEB2 4A 1
+ivt0x8 CODE 0 8 8 FA 1
+cinit CODE 0 206 206 64 1
 idloc IDLOC 5 200000 200000 20 1
-text0 CODE 0 1FE2C 1FE2C 40 1
-text1 CODE 0 1FE6C 1FE6C 46 1
-text2 CODE 0 1FDAC 1FDAC 10 1
-text3 CODE 0 1FDF4 1FDF4 38 1
-text4 CODE 0 1FDAA 1FDAA 2 1
-text5 CODE 0 1FDD2 1FDD2 22 1
-text6 CODE 0 1FDBC 1FDBC 16 1
-text7 CODE 0 1FDA8 1FDA8 2 1
-idataCOMRAM CODE 0 1FDA7 1FDA7 1 1
-cstackCOMRAM COMRAM 1 50E 50E 4 1
-idataBANK6 CODE 0 1FEFC 1FEFC 100 1
+text0 CODE 0 39A 39A 28 1
+text1 CODE 0 36E 36E 2C 1
+text2 CODE 0 26A 26A 54 1
+text3 CODE 0 3F4 3F4 12 1
+text4 CODE 0 33A 33A 34 1
+text5 CODE 0 41A 41A 8 1
+text6 CODE 0 3DE 3DE 16 1
+text7 CODE 0 428 428 2 1
+text8 CODE 0 3C4 3C4 1A 1
+text9 CODE 0 424 424 4 1
+text10 CODE 0 300 300 3A 1
+text11 CODE 0 408 408 12 1
+idataCOMRAM CODE 0 2BE 2BE 3F 1
+cstackCOMRAM COMRAM 1 551 551 6 1
+idataBANK6 CODE 0 106 106 100 1
 dataBANK6 BANK6 1 600 600 100 1
-dataCOMRAM COMRAM 1 512 512 1 1
-bssCOMRAM COMRAM 1 501 501 D 1
+dataCOMRAM COMRAM 1 501 501 3F 1
+bssCOMRAM COMRAM 1 540 540 11 1
 config CONFIG 4 300000 300000 A 1
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -47,10 +52,20 @@ BANK5 560-5FF 1
 BANK7 700-7FF 1
 BANK8 800-8FF 1
 BANK9 900-9FF 1
-CONST 4-1FDA6 1
+CONST 4-7 1
+CONST 2FD-2FF 1
+CONST 3C2-3C3 1
+CONST 406-407 1
+CONST 422-423 1
+CONST 42A-1FFFF 1
 STACK 700-25FF 1
-SMALLCONST 2600-1FDA6 1
-CODE 4-1FDA6 1
+SMALLCONST 2600-1FFFF 1
+CODE 4-7 1
+CODE 2FD-2FF 1
+CODE 3C2-3C3 1
+CODE 406-407 1
+CODE 422-423 1
+CODE 42A-1FFFF 1
 BANK10 A00-AFF 1
 BANK11 B00-BFF 1
 BANK12 C00-CFF 1
@@ -79,13 +94,13 @@ BANK34 2200-22FF 1
 BANK35 2300-23FF 1
 BANK36 2400-24FF 1
 BANK37 2500-25FF 1
-BIGRAM 513-5FF 1
+BIGRAM 557-5FF 1
 BIGRAM 700-25FF 1
-COMRAM 513-55F 1
+COMRAM 557-55F 1
 CONFIG 30000A-300011 1
 EEDATA 380000-3803FF 1
 MEDIUMCONST 2600-FFFF 1
-MEDIUMCONST 12600-1FDA6 1
+MEDIUMCONST 12600-1FFFF 1
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -100,95 +115,143 @@ MEDIUMCONST 12600-1FDA6 1
 # All other numeric values are in decimal.
 %LINETAB
 $dist/default/debug\2021_ENCM369.debug.o
-1FDA8 text7 CODE >70:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
-1FDA8 text7 CODE >74:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
-1FDBC text6 CODE >89:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
-1FDBC text6 CODE >92:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
-1FDC2 text6 CODE >93:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
-1FDC6 text6 CODE >96:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
-1FDCC text6 CODE >97:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
-1FDD0 text6 CODE >99:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
-1FDD2 text5 CODE >114:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
-1FDD2 text5 CODE >116:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
-1FDE2 text5 CODE >117:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
-1FDF2 text5 CODE >119:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
-1FDAA text4 CODE >136:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
-1FDAA text4 CODE >139:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
-1FDF4 text3 CODE >90:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FDF4 text3 CODE >92:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FDF8 text3 CODE >95:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FE0A text3 CODE >97:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FE0C text3 CODE >98:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FE10 text3 CODE >99:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FE10 text3 CODE >102:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FE14 text3 CODE >105:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FE1C text3 CODE >106:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FE20 text3 CODE >107:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FE26 text3 CODE >110:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FE28 text3 CODE >111:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FE2A text3 CODE >113:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FDAC text2 CODE >135:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FDAC text2 CODE >138:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FDB0 text2 CODE >142:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FDB6 text2 CODE >143:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FDBA text2 CODE >145:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FE6C text1 CODE >160:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FE6C text1 CODE >164:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FE7C text1 CODE >166:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FE80 text1 CODE >167:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FE90 text1 CODE >169:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FE98 text1 CODE >175:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FE9C text1 CODE >176:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FEAC text1 CODE >178:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FEB0 text1 CODE >182:D:\_git\UofCencm369\2021_ENCM369\user_app.c
-1FE2C text0 CODE >35:D:\_git\UofCencm369\2021_ENCM369\main.c
-1FE2C text0 CODE >37:D:\_git\UofCencm369\2021_ENCM369\main.c
-1FE2E text0 CODE >40:D:\_git\UofCencm369\2021_ENCM369\main.c
-1FE32 text0 CODE >41:D:\_git\UofCencm369\2021_ENCM369\main.c
-1FE36 text0 CODE >42:D:\_git\UofCencm369\2021_ENCM369\main.c
-1FE3A text0 CODE >47:D:\_git\UofCencm369\2021_ENCM369\main.c
-1FE3E text0 CODE >57:D:\_git\UofCencm369\2021_ENCM369\main.c
-1FE42 text0 CODE >61:D:\_git\UofCencm369\2021_ENCM369\main.c
-1FE44 text0 CODE >62:D:\_git\UofCencm369\2021_ENCM369\main.c
-1FE48 text0 CODE >65:D:\_git\UofCencm369\2021_ENCM369\main.c
-1FE54 text0 CODE >66:D:\_git\UofCencm369\2021_ENCM369\main.c
-1FE62 text0 CODE >68:D:\_git\UofCencm369\2021_ENCM369\main.c
-1FEB2 cinit CODE >5369:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEB2 cinit CODE >5371:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEB2 cinit CODE >5374:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEB2 cinit CODE >5411:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEB4 cinit CODE >5412:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEB6 cinit CODE >5413:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEB8 cinit CODE >5414:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEBA cinit CODE >5415:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEBC cinit CODE >5416:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEBE cinit CODE >5417:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEC2 cinit CODE >5418:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEC6 cinit CODE >5419:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEC6 cinit CODE >5420:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEC8 cinit CODE >5421:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FECC cinit CODE >5422:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FECE cinit CODE >5423:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FED0 cinit CODE >5424:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FED2 cinit CODE >5425:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FED4 cinit CODE >5426:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FED6 cinit CODE >5430:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FED8 cinit CODE >5431:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEDA cinit CODE >5432:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEDC cinit CODE >5433:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEDE cinit CODE >5434:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEE0 cinit CODE >5435:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEE2 cinit CODE >5436:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEE4 cinit CODE >5437:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEEA cinit CODE >5441:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEEE cinit CODE >5442:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEF0 cinit CODE >5443:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEF0 cinit CODE >5444:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEF2 cinit CODE >5445:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEF4 cinit CODE >5446:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEF6 cinit CODE >5452:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEF6 cinit CODE >5454:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
-1FEF8 cinit CODE >5455:C:\Users\ENGENU~1\AppData\Local\Temp\sar4.s
+408 text11 CODE >143:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+408 text11 CODE >147:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+408 text11 CODE >150:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+40A text11 CODE >151:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+40C text11 CODE >154:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+418 text11 CODE >163:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+300 text10 CODE >90:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+300 text10 CODE >112:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+300 text10 CODE >117:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+306 text10 CODE >118:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+30C text10 CODE >125:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+31E text10 CODE >126:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+322 text10 CODE >134:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+324 text10 CODE >137:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+332 text10 CODE >139:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+334 text10 CODE >140:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+338 text10 CODE >143:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+424 text9 CODE >86:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+424 text9 CODE >88:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+424 text9 CODE >106:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+426 text9 CODE >90:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+3C4 text8 CODE >75:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
+3C4 text8 CODE >93:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+3CA text8 CODE >101:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+3D6 text8 CODE >106:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+428 text7 CODE >71:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
+428 text7 CODE >75:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
+3DE text6 CODE >90:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
+3DE text6 CODE >93:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
+3E4 text6 CODE >94:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
+3E8 text6 CODE >97:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
+3EE text6 CODE >98:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
+3F2 text6 CODE >100:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
+41A text5 CODE >74:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+41A text5 CODE >77:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+41C text5 CODE >80:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+41E text5 CODE >81:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+420 text5 CODE >83:D:\_git\UofCencm369\2021_ENCM369\interrupts.c
+33A text4 CODE >115:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
+33A text4 CODE >117:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
+34A text4 CODE >118:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
+35A text4 CODE >126:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
+360 text4 CODE >127:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
+364 text4 CODE >128:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
+366 text4 CODE >129:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
+36A text4 CODE >131:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
+36C text4 CODE >133:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
+3F4 text3 CODE >150:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
+3F4 text3 CODE >152:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
+3F6 text3 CODE >153:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
+404 text3 CODE >155:D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
+26A text2 CODE >147:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+26A text2 CODE >152:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+26E text2 CODE >155:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+280 text2 CODE >157:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+286 text2 CODE >161:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+286 text2 CODE >164:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+28E text2 CODE >165:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+292 text2 CODE >166:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+296 text2 CODE >167:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+29C text2 CODE >168:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+2A2 text2 CODE >171:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+2A4 text2 CODE >172:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+2B4 text2 CODE >174:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+2B6 text2 CODE >178:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+2B8 text2 CODE >179:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+2BA text2 CODE >180:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+2BC text2 CODE >182:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+36E text1 CODE >204:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+36E text1 CODE >207:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+372 text1 CODE >211:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+378 text1 CODE >212:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+37C text1 CODE >216:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+380 text1 CODE >217:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+384 text1 CODE >218:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+388 text1 CODE >221:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+398 text1 CODE >223:D:\_git\UofCencm369\2021_ENCM369\user_app.c
+39A text0 CODE >34:D:\_git\UofCencm369\2021_ENCM369\main.c
+39A text0 CODE >36:D:\_git\UofCencm369\2021_ENCM369\main.c
+39C text0 CODE >39:D:\_git\UofCencm369\2021_ENCM369\main.c
+3A0 text0 CODE >40:D:\_git\UofCencm369\2021_ENCM369\main.c
+3A4 text0 CODE >41:D:\_git\UofCencm369\2021_ENCM369\main.c
+3A8 text0 CODE >43:D:\_git\UofCencm369\2021_ENCM369\main.c
+3AC text0 CODE >48:D:\_git\UofCencm369\2021_ENCM369\main.c
+3B0 text0 CODE >51:D:\_git\UofCencm369\2021_ENCM369\main.c
+3B2 text0 CODE >62:D:\_git\UofCencm369\2021_ENCM369\main.c
+3B4 text0 CODE >63:D:\_git\UofCencm369\2021_ENCM369\main.c
+3B8 text0 CODE >64:D:\_git\UofCencm369\2021_ENCM369\main.c
+206 cinit CODE >7087:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+206 cinit CODE >7089:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+206 cinit CODE >7092:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+206 cinit CODE >7154:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+208 cinit CODE >7155:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+20A cinit CODE >7156:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+20C cinit CODE >7157:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+20E cinit CODE >7158:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+210 cinit CODE >7159:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+212 cinit CODE >7160:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+216 cinit CODE >7161:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+21A cinit CODE >7162:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+21A cinit CODE >7163:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+21C cinit CODE >7164:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+220 cinit CODE >7165:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+222 cinit CODE >7166:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+224 cinit CODE >7167:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+226 cinit CODE >7168:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+228 cinit CODE >7169:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+22A cinit CODE >7173:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+22C cinit CODE >7174:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+22E cinit CODE >7175:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+230 cinit CODE >7176:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+232 cinit CODE >7177:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+234 cinit CODE >7178:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+236 cinit CODE >7179:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+23A cinit CODE >7180:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+23E cinit CODE >7181:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+23E cinit CODE >7182:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+240 cinit CODE >7183:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+244 cinit CODE >7184:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+246 cinit CODE >7185:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+248 cinit CODE >7186:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+24A cinit CODE >7190:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+24E cinit CODE >7191:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+250 cinit CODE >7192:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+250 cinit CODE >7193:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+252 cinit CODE >7194:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+254 cinit CODE >7195:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+256 cinit CODE >7203:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+258 cinit CODE >7204:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+25A cinit CODE >7205:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+25C cinit CODE >7206:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+25E cinit CODE >7207:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+260 cinit CODE >7208:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+262 cinit CODE >7209:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+264 cinit CODE >7215:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+264 cinit CODE >7217:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
+266 cinit CODE >7218:C:\Users\ENGENU~1\AppData\Local\Temp\s41s.s
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -203,58 +266,67 @@ $dist/default/debug\2021_ENCM369.debug.o
 %SYMTAB
 __LdataBANK6 0 0 ABS 0 dataBANK6 dist/default/debug\2021_ENCM369.debug.o
 __Lmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/debug\2021_ENCM369.debug.o
-__Hspace_0 20000 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
+__Hspace_0 2600 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __Hspace_1 700 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __Hspace_2 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __Hspace_4 60000A 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __HidataBANK6 0 0 ABS 0 idataBANK6 dist/default/debug\2021_ENCM369.debug.o
 __Hibigdata 0 0 CODE 0 ibigdata dist/default/debug\2021_ENCM369.debug.o
-__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\ENGENU~1\AppData\Local\Temp\sar4.o
+__mediumconst 0 0 MEDIUMCONST 0 mediumconst C:\Users\ENGENU~1\AppData\Local\Temp\s41s.o
 __Heeprom_data 0 0 EEDATA 0 eeprom_data dist/default/debug\2021_ENCM369.debug.o
-__end_of_TimeXus 1FE2C 0 CODE 0 text3 dist/default/debug\2021_ENCM369.debug.o
+_T1CONbits 31E 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __Lsmallconst 0 0 SMALLCONST 0 smallconst dist/default/debug\2021_ENCM369.debug.o
 _LATA 4BE 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
-___sp 0 0 STACK 2 stack C:\Users\ENGENU~1\AppData\Local\Temp\sar4.o
-_main 1FE2C 0 CODE 0 text0 dist/default/debug\2021_ENCM369.debug.o
-start 1FFFC 0 CODE 0 init C:\Users\ENGENU~1\AppData\Local\Temp\sar4.o
+_T2PR 323 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
+___sp 0 0 STACK 2 stack C:\Users\ENGENU~1\AppData\Local\Temp\s41s.o
+_main 39A 0 CODE 0 text0 dist/default/debug\2021_ENCM369.debug.o
+start 102 0 CODE 0 init C:\Users\ENGENU~1\AppData\Local\Temp\s41s.o
 __size_of_main 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __HbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/debug\2021_ENCM369.debug.o
 _DAC1DATL 7D 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __size_of_SystemSleep 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __LidataBANK6 0 0 ABS 0 idataBANK6 dist/default/debug\2021_ENCM369.debug.o
 __Hpowerup 0 0 CODE 0 powerup dist/default/debug\2021_ENCM369.debug.o
+__end_of_SW_ISR 428 0 CODE 0 text9 dist/default/debug\2021_ENCM369.debug.o
 __HdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/debug\2021_ENCM369.debug.o
-__accesstop 560 0 ABS 0 - C:\Users\ENGENU~1\AppData\Local\Temp\sar4.o
-intlevel0 0 0 CODE 0 text C:\Users\ENGENU~1\AppData\Local\Temp\sar4.o
-intlevel1 0 0 CODE 0 text C:\Users\ENGENU~1\AppData\Local\Temp\sar4.o
-intlevel2 0 0 CODE 0 text C:\Users\ENGENU~1\AppData\Local\Temp\sar4.o
-intlevel3 0 0 CODE 0 text C:\Users\ENGENU~1\AppData\Local\Temp\sar4.o
+InterruptTimerXus@u16TimeXus_ 552 0 COMRAM 1 cstackCOMRAM dist/default/debug\2021_ENCM369.debug.o
+__accesstop 560 0 ABS 0 - C:\Users\ENGENU~1\AppData\Local\Temp\s41s.o
+intlevel0 0 0 CODE 0 text C:\Users\ENGENU~1\AppData\Local\Temp\s41s.o
+intlevel1 0 0 CODE 0 text C:\Users\ENGENU~1\AppData\Local\Temp\s41s.o
+intlevel2 0 0 CODE 0 text C:\Users\ENGENU~1\AppData\Local\Temp\s41s.o
+intlevel3 0 0 CODE 0 text C:\Users\ENGENU~1\AppData\Local\Temp\s41s.o
+UserAppRun@au16Notes 51F 0 COMRAM 1 dataCOMRAM dist/default/debug\2021_ENCM369.debug.o
+UserAppRun@au16Times 501 0 COMRAM 1 dataCOMRAM dist/default/debug\2021_ENCM369.debug.o
 __LbssCOMRAM 0 0 ABS 0 bssCOMRAM dist/default/debug\2021_ENCM369.debug.o
+_DEFAULT_ISR 3C4 0 CODE 0 text8 dist/default/debug\2021_ENCM369.debug.o
 __LnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/debug\2021_ENCM369.debug.o
 __Hifardata 0 0 CODE 0 ifardata dist/default/debug\2021_ENCM369.debug.o
 __Hclrtext 0 0 ABS 0 clrtext dist/default/debug\2021_ENCM369.debug.o
-__pidataCOMRAM 1FDA7 0 CODE 0 idataCOMRAM dist/default/debug\2021_ENCM369.debug.o
-_UserAppRun 1FE6C 0 CODE 0 text1 dist/default/debug\2021_ENCM369.debug.o
+__pidataCOMRAM 2BE 0 CODE 0 idataCOMRAM dist/default/debug\2021_ENCM369.debug.o
+ivt0x8_base 8 0 CODE 0 ivt0x8 dist/default/debug\2021_ENCM369.debug.o
 _ANSELA 400 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
-_G_u32SystemTime1s 505 0 COMRAM 1 bssCOMRAM dist/default/debug\2021_ENCM369.debug.o
-___inthi_sp 0 0 STACK 2 stack C:\Users\ENGENU~1\AppData\Local\Temp\sar4.o
-___intlo_sp 0 0 STACK 2 stack C:\Users\ENGENU~1\AppData\Local\Temp\sar4.o
+_G_u32SystemTime1s 544 0 COMRAM 1 bssCOMRAM dist/default/debug\2021_ENCM369.debug.o
+___inthi_sp 0 0 STACK 2 stack C:\Users\ENGENU~1\AppData\Local\Temp\s41s.o
+___intlo_sp 0 0 STACK 2 stack C:\Users\ENGENU~1\AppData\Local\Temp\s41s.o
 __LdataCOMRAM 0 0 ABS 0 dataCOMRAM dist/default/debug\2021_ENCM369.debug.o
 _DAC1CON 7F 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __Lintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/debug\2021_ENCM369.debug.o
 __Hmediumconst 0 0 MEDIUMCONST 0 mediumconst dist/default/debug\2021_ENCM369.debug.o
 __size_of_UserAppInitialize 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __size_of_ClockSetup 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
+InterruptTimerXus@u16Temp 555 0 COMRAM 1 cstackCOMRAM dist/default/debug\2021_ENCM369.debug.o
 __LidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/debug\2021_ENCM369.debug.o
-_G_u32SystemFlags 501 0 COMRAM 1 bssCOMRAM dist/default/debug\2021_ENCM369.debug.o
-TimeXus@u16Temp 510 0 COMRAM 1 cstackCOMRAM dist/default/debug\2021_ENCM369.debug.o
-start_initialization 1FEB2 0 CODE 0 cinit dist/default/debug\2021_ENCM369.debug.o
+UserAppRun@u16TimeToNoteChange 53D 0 COMRAM 1 dataCOMRAM dist/default/debug\2021_ENCM369.debug.o
+_INTCON0bits 4D6 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
+start_initialization 206 0 CODE 0 cinit dist/default/debug\2021_ENCM369.debug.o
 __HnvFARRAM 0 0 FARRAM 0 nvFARRAM dist/default/debug\2021_ENCM369.debug.o
-__end_of_UserAppRun 1FEB2 0 CODE 0 text1 dist/default/debug\2021_ENCM369.debug.o
 ___rparam_used 1 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 _T0CON0 31A 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 _T0CON1 31B 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
-_TimeXus 1FDF4 0 CODE 0 text3 dist/default/debug\2021_ENCM369.debug.o
+_T1GCON 31F 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
+_SW_ISR 424 0 CODE 0 text9 dist/default/debug\2021_ENCM369.debug.o
+_T2CLKCON 326 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
+_InterruptSetup 41A 0 CODE 0 text5 dist/default/debug\2021_ENCM369.debug.o
 __Hbank5 0 0 ABS 0 bank5 dist/default/debug\2021_ENCM369.debug.o
 __Hbank6 0 0 ABS 0 bank6 dist/default/debug\2021_ENCM369.debug.o
 __Hbank7 0 0 ABS 0 bank7 dist/default/debug\2021_ENCM369.debug.o
@@ -276,6 +348,8 @@ __Htext4 0 0 ABS 0 text4 dist/default/debug\2021_ENCM369.debug.o
 __Htext5 0 0 ABS 0 text5 dist/default/debug\2021_ENCM369.debug.o
 __Htext6 0 0 ABS 0 text6 dist/default/debug\2021_ENCM369.debug.o
 __Htext7 0 0 ABS 0 text7 dist/default/debug\2021_ENCM369.debug.o
+__Htext8 0 0 ABS 0 text8 dist/default/debug\2021_ENCM369.debug.o
+__Htext9 0 0 ABS 0 text9 dist/default/debug\2021_ENCM369.debug.o
 __Hbank10 0 0 ABS 0 bank10 dist/default/debug\2021_ENCM369.debug.o
 __Hbank11 0 0 ABS 0 bank11 dist/default/debug\2021_ENCM369.debug.o
 __Hbank12 0 0 ABS 0 bank12 dist/default/debug\2021_ENCM369.debug.o
@@ -306,10 +380,11 @@ __Hbank36 0 0 ABS 0 bank36 dist/default/debug\2021_ENCM369.debug.o
 __Hbank37 0 0 ABS 0 bank37 dist/default/debug\2021_ENCM369.debug.o
 __Hbigbss 0 0 BIGRAM 1 bigbss dist/default/debug\2021_ENCM369.debug.o
 __Hbigram 0 0 ABS 0 bigram dist/default/debug\2021_ENCM369.debug.o
-__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\ENGENU~1\AppData\Local\Temp\sar4.o
-_SystemSleep 1FDAA 0 CODE 0 text4 dist/default/debug\2021_ENCM369.debug.o
+__smallconst 0 0 SMALLCONST 0 smallconst C:\Users\ENGENU~1\AppData\Local\Temp\s41s.o
+_SystemSleep 3F4 0 CODE 0 text3 dist/default/debug\2021_ENCM369.debug.o
 __Hcomram 0 0 ABS 0 comram dist/default/debug\2021_ENCM369.debug.o
 __Hconfig 30000A 0 CONFIG 4 config dist/default/debug\2021_ENCM369.debug.o
+_G_u8SystemFlags 550 0 COMRAM 1 bssCOMRAM dist/default/debug\2021_ENCM369.debug.o
 __Lbank5 0 0 ABS 0 bank5 dist/default/debug\2021_ENCM369.debug.o
 __Lbank6 0 0 ABS 0 bank6 dist/default/debug\2021_ENCM369.debug.o
 __Lbank7 0 0 ABS 0 bank7 dist/default/debug\2021_ENCM369.debug.o
@@ -319,7 +394,7 @@ __Lcinit 0 0 ABS 0 cinit dist/default/debug\2021_ENCM369.debug.o
 __Lconst 0 0 CONST 0 const dist/default/debug\2021_ENCM369.debug.o
 __Lidata 0 0 CODE 0 idata dist/default/debug\2021_ENCM369.debug.o
 __Lidloc 0 0 IDLOC 5 idloc dist/default/debug\2021_ENCM369.debug.o
-_G_u32SystemTime1ms 509 0 COMRAM 1 bssCOMRAM dist/default/debug\2021_ENCM369.debug.o
+_G_u32SystemTime1ms 548 0 COMRAM 1 bssCOMRAM dist/default/debug\2021_ENCM369.debug.o
 __Lnvbit 0 0 COMRAM 1 nvbit dist/default/debug\2021_ENCM369.debug.o
 __Lparam 0 0 COMRAM 1 rparam dist/default/debug\2021_ENCM369.debug.o
 __Lrdata 0 0 COMRAM 1 rdata dist/default/debug\2021_ENCM369.debug.o
@@ -332,39 +407,60 @@ __Ltext4 0 0 ABS 0 text4 dist/default/debug\2021_ENCM369.debug.o
 __Ltext5 0 0 ABS 0 text5 dist/default/debug\2021_ENCM369.debug.o
 __Ltext6 0 0 ABS 0 text6 dist/default/debug\2021_ENCM369.debug.o
 __Ltext7 0 0 ABS 0 text7 dist/default/debug\2021_ENCM369.debug.o
+__Ltext8 0 0 ABS 0 text8 dist/default/debug\2021_ENCM369.debug.o
+__Ltext9 0 0 ABS 0 text9 dist/default/debug\2021_ENCM369.debug.o
 __Hfarbss 0 0 FARRAM 0 farbss dist/default/debug\2021_ENCM369.debug.o
+__size_of_SW_ISR 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __Habs1 0 0 ABS 0 abs1 dist/default/debug\2021_ENCM369.debug.o
 __Hdata 0 0 ABS 0 data dist/default/debug\2021_ENCM369.debug.o
-__Hinit 20000 0 CODE 0 init dist/default/debug\2021_ENCM369.debug.o
+__Hinit 106 0 CODE 0 init dist/default/debug\2021_ENCM369.debug.o
 __Hrbit 0 0 COMRAM 1 rbit dist/default/debug\2021_ENCM369.debug.o
 __Hrbss 0 0 COMRAM 1 rbss dist/default/debug\2021_ENCM369.debug.o
 __Htemp 0 0 COMRAM 1 temp dist/default/debug\2021_ENCM369.debug.o
 __Htext 0 0 ABS 0 text dist/default/debug\2021_ENCM369.debug.o
 __Labs1 0 0 ABS 0 abs1 dist/default/debug\2021_ENCM369.debug.o
 __Ldata 0 0 ABS 0 data dist/default/debug\2021_ENCM369.debug.o
-__Linit 1FFFC 0 CODE 0 init dist/default/debug\2021_ENCM369.debug.o
+__Linit 102 0 CODE 0 init dist/default/debug\2021_ENCM369.debug.o
 __Lrbit 0 0 COMRAM 1 rbit dist/default/debug\2021_ENCM369.debug.o
 __Lrbss 0 0 COMRAM 1 rbss dist/default/debug\2021_ENCM369.debug.o
 __Ltemp 0 0 COMRAM 1 temp dist/default/debug\2021_ENCM369.debug.o
 __Ltext 0 0 ABS 0 text dist/default/debug\2021_ENCM369.debug.o
-__end_of_UserAppInitialize 1FDBC 0 CODE 0 text2 dist/default/debug\2021_ENCM369.debug.o
+__end_of_UserAppInitialize 39A 0 CODE 0 text1 dist/default/debug\2021_ENCM369.debug.o
 __HcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/debug\2021_ENCM369.debug.o
 __Hirdata 0 0 CODE 0 irdata dist/default/debug\2021_ENCM369.debug.o
-__S0 20000 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
+__S0 42A 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __S1 700 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __S2 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __S4 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __S5 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
-_SysTickSetup 1FDD2 0 CODE 0 text5 dist/default/debug\2021_ENCM369.debug.o
+__Hivt0x8 102 0 CODE 0 ivt0x8 dist/default/debug\2021_ENCM369.debug.o
+__size_of_TMR1_ISR 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
+__size_of_TMR2_ISR 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
+_SysTickSetup 33A 0 CODE 0 text4 dist/default/debug\2021_ENCM369.debug.o
+UserAppRun@u8Index 53F 0 COMRAM 1 dataCOMRAM dist/default/debug\2021_ENCM369.debug.o
+IVTBASEH 45E 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
+IVTBASEL 45D 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
+IVTBASEU 45F 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
+__end_of_InterruptSetup 422 0 CODE 0 text5 dist/default/debug\2021_ENCM369.debug.o
+__pivt0x8 8 0 CODE 0 ivt0x8 dist/default/debug\2021_ENCM369.debug.o
 __HidataCOMRAM 0 0 ABS 0 idataCOMRAM dist/default/debug\2021_ENCM369.debug.o
 __Lbigdata 0 0 BIGRAM 1 bigdata dist/default/debug\2021_ENCM369.debug.o
 __Hnvrram 0 0 COMRAM 1 nvrram dist/default/debug\2021_ENCM369.debug.o
+__end_of_DEFAULT_ISR 3DE 0 CODE 0 text8 dist/default/debug\2021_ENCM369.debug.o
+__size_of_InterruptTimerXus 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __Hramtop 2600 0 RAM 0 ramtop dist/default/debug\2021_ENCM369.debug.o
 __Hrparam 0 0 COMRAM 1 rparam dist/default/debug\2021_ENCM369.debug.o
 __pdataBANK6 600 0 BANK6 1 dataBANK6 dist/default/debug\2021_ENCM369.debug.o
 __activetblptr 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __Hstruct 0 0 COMRAM 1 struct dist/default/debug\2021_ENCM369.debug.o
+__Htext10 0 0 ABS 0 text10 dist/default/debug\2021_ENCM369.debug.o
+__Htext11 0 0 ABS 0 text11 dist/default/debug\2021_ENCM369.debug.o
 __size_of_SysTickSetup 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
+_PIE3bits 4A1 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
+_TMR1_ISR 300 0 CODE 0 text10 dist/default/debug\2021_ENCM369.debug.o
+_TMR2_ISR 408 0 CODE 0 text11 dist/default/debug\2021_ENCM369.debug.o
+__ptext10 300 0 CODE 0 text10 dist/default/debug\2021_ENCM369.debug.o
+__ptext11 408 0 CODE 0 text11 dist/default/debug\2021_ENCM369.debug.o
 __Lbank10 0 0 ABS 0 bank10 dist/default/debug\2021_ENCM369.debug.o
 __Lbank11 0 0 ABS 0 bank11 dist/default/debug\2021_ENCM369.debug.o
 __Lbank12 0 0 ABS 0 bank12 dist/default/debug\2021_ENCM369.debug.o
@@ -395,58 +491,76 @@ __Lbank36 0 0 ABS 0 bank36 dist/default/debug\2021_ENCM369.debug.o
 __Lbank37 0 0 ABS 0 bank37 dist/default/debug\2021_ENCM369.debug.o
 __Lbigbss 0 0 BIGRAM 1 bigbss dist/default/debug\2021_ENCM369.debug.o
 __Lbigram 0 0 ABS 0 bigram dist/default/debug\2021_ENCM369.debug.o
+TMR1_ISR@u8Index 54C 0 COMRAM 1 bssCOMRAM dist/default/debug\2021_ENCM369.debug.o
 __Lcomram 0 0 ABS 0 comram dist/default/debug\2021_ENCM369.debug.o
 __Lconfig 0 0 CONFIG 4 config dist/default/debug\2021_ENCM369.debug.o
-__size_of_UserAppRun 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
-__end_of_SysTickSetup 1FDF4 0 CODE 0 text5 dist/default/debug\2021_ENCM369.debug.o
-_UserAppInitialize 1FDAC 0 CODE 0 text2 dist/default/debug\2021_ENCM369.debug.o
+__end_of_TMR1_ISR 33A 0 CODE 0 text10 dist/default/debug\2021_ENCM369.debug.o
+__end_of_TMR2_ISR 41A 0 CODE 0 text11 dist/default/debug\2021_ENCM369.debug.o
+ivt0x8_undefint 100 0 CODE 0 ivt0x8 dist/default/debug\2021_ENCM369.debug.o
+__end_of_SysTickSetup 36E 0 CODE 0 text4 dist/default/debug\2021_ENCM369.debug.o
+_UserAppInitialize 36E 0 CODE 0 text1 dist/default/debug\2021_ENCM369.debug.o
 __Lfarbss 0 0 FARRAM 0 farbss dist/default/debug\2021_ENCM369.debug.o
 __Lfardata 0 0 FARRAM 0 fardata dist/default/debug\2021_ENCM369.debug.o
-stackhi 25FF 0 ABS 0 - C:\Users\ENGENU~1\AppData\Local\Temp\sar4.o
-stacklo 700 0 ABS 0 - C:\Users\ENGENU~1\AppData\Local\Temp\sar4.o
+stackhi 25FF 0 ABS 0 - C:\Users\ENGENU~1\AppData\Local\Temp\s41s.o
+stacklo 700 0 ABS 0 - C:\Users\ENGENU~1\AppData\Local\Temp\s41s.o
 __Lirdata 0 0 CODE 0 irdata dist/default/debug\2021_ENCM369.debug.o
+__Livt0x8 8 0 CODE 0 ivt0x8 dist/default/debug\2021_ENCM369.debug.o
 __Lspace_0 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __Lspace_1 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __Lspace_2 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __Lspace_4 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
-__pbssCOMRAM 501 0 COMRAM 1 bssCOMRAM dist/default/debug\2021_ENCM369.debug.o
-_G_u8UserAppFlags 50D 0 COMRAM 1 bssCOMRAM dist/default/debug\2021_ENCM369.debug.o
+__pbssCOMRAM 540 0 COMRAM 1 bssCOMRAM dist/default/debug\2021_ENCM369.debug.o
+_PIR0bits 4AE 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
+_G_u8UserAppFlags 54F 0 COMRAM 1 bssCOMRAM dist/default/debug\2021_ENCM369.debug.o
 _PIR3bits 4B1 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __LcstackCOMRAM 0 0 ABS 0 cstackCOMRAM dist/default/debug\2021_ENCM369.debug.o
-end_of_initialization 1FEF6 0 CODE 0 cinit dist/default/debug\2021_ENCM369.debug.o
+end_of_initialization 264 0 CODE 0 cinit dist/default/debug\2021_ENCM369.debug.o
 __Lnvrram 0 0 COMRAM 1 nvrram dist/default/debug\2021_ENCM369.debug.o
-TimeXus@u16TimeXus_ 50E 0 COMRAM 1 cstackCOMRAM dist/default/debug\2021_ENCM369.debug.o
 __Hreset_vec 4 0 CODE 0 reset_vec dist/default/debug\2021_ENCM369.debug.o
 __Lramtop 2600 0 RAM 0 ramtop dist/default/debug\2021_ENCM369.debug.o
 __Lrparam 0 0 COMRAM 1 rparam dist/default/debug\2021_ENCM369.debug.o
-__pcinit 1FEB2 0 CODE 0 cinit dist/default/debug\2021_ENCM369.debug.o
-__ptext0 1FE2C 0 CODE 0 text0 dist/default/debug\2021_ENCM369.debug.o
-__ptext1 1FE6C 0 CODE 0 text1 dist/default/debug\2021_ENCM369.debug.o
-__ptext2 1FDAC 0 CODE 0 text2 dist/default/debug\2021_ENCM369.debug.o
-__ptext3 1FDF4 0 CODE 0 text3 dist/default/debug\2021_ENCM369.debug.o
-__ptext4 1FDAA 0 CODE 0 text4 dist/default/debug\2021_ENCM369.debug.o
-__ptext5 1FDD2 0 CODE 0 text5 dist/default/debug\2021_ENCM369.debug.o
-__ptext6 1FDBC 0 CODE 0 text6 dist/default/debug\2021_ENCM369.debug.o
-__ptext7 1FDA8 0 CODE 0 text7 dist/default/debug\2021_ENCM369.debug.o
+__pcinit 206 0 CODE 0 cinit dist/default/debug\2021_ENCM369.debug.o
+__ptext0 39A 0 CODE 0 text0 dist/default/debug\2021_ENCM369.debug.o
+__ptext1 36E 0 CODE 0 text1 dist/default/debug\2021_ENCM369.debug.o
+__ptext2 26A 0 CODE 0 text2 dist/default/debug\2021_ENCM369.debug.o
+__ptext3 3F4 0 CODE 0 text3 dist/default/debug\2021_ENCM369.debug.o
+__ptext4 33A 0 CODE 0 text4 dist/default/debug\2021_ENCM369.debug.o
+__ptext5 41A 0 CODE 0 text5 dist/default/debug\2021_ENCM369.debug.o
+__ptext6 3DE 0 CODE 0 text6 dist/default/debug\2021_ENCM369.debug.o
+__ptext7 428 0 CODE 0 text7 dist/default/debug\2021_ENCM369.debug.o
+__ptext8 3C4 0 CODE 0 text8 dist/default/debug\2021_ENCM369.debug.o
+__ptext9 424 0 CODE 0 text9 dist/default/debug\2021_ENCM369.debug.o
 __Lstruct 0 0 COMRAM 1 struct dist/default/debug\2021_ENCM369.debug.o
-__ramtop 2600 0 RAM 0 ramtop C:\Users\ENGENU~1\AppData\Local\Temp\sar4.o
+__end_of_InterruptTimerXus 2BE 0 CODE 0 text2 dist/default/debug\2021_ENCM369.debug.o
+_G_u8UserAppTimePeriodHi 54E 0 COMRAM 1 bssCOMRAM dist/default/debug\2021_ENCM369.debug.o
+_G_u8UserAppTimePeriodLo 54D 0 COMRAM 1 bssCOMRAM dist/default/debug\2021_ENCM369.debug.o
+__Ltext10 0 0 ABS 0 text10 dist/default/debug\2021_ENCM369.debug.o
+__Ltext11 0 0 ABS 0 text11 dist/default/debug\2021_ENCM369.debug.o
+__ramtop 2600 0 RAM 0 ramtop C:\Users\ENGENU~1\AppData\Local\Temp\s41s.o
 __Lpowerup 0 0 CODE 0 powerup dist/default/debug\2021_ENCM369.debug.o
 __Leeprom_data 0 0 EEDATA 0 eeprom_data dist/default/debug\2021_ENCM369.debug.o
-_ClockSetup 1FDA8 0 CODE 0 text7 dist/default/debug\2021_ENCM369.debug.o
+DEFAULT_ISR@u32UnhandledCounter 540 0 COMRAM 1 bssCOMRAM dist/default/debug\2021_ENCM369.debug.o
+__size_of_DEFAULT_ISR 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
+_ClockSetup 428 0 CODE 0 text7 dist/default/debug\2021_ENCM369.debug.o
 __Lreset_vec 0 0 CODE 0 reset_vec dist/default/debug\2021_ENCM369.debug.o
-__end_of_SystemSleep 1FDAC 0 CODE 0 text4 dist/default/debug\2021_ENCM369.debug.o
+__end_of_SystemSleep 406 0 CODE 0 text3 dist/default/debug\2021_ENCM369.debug.o
 ___param_bank 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __Hbigdata 0 0 BIGRAM 1 bigdata dist/default/debug\2021_ENCM369.debug.o
-__end_of__initialization 1FEF6 0 CODE 0 cinit dist/default/debug\2021_ENCM369.debug.o
+__end_of__initialization 264 0 CODE 0 cinit dist/default/debug\2021_ENCM369.debug.o
 __Libigdata 0 0 CODE 0 ibigdata dist/default/debug\2021_ENCM369.debug.o
-__pidataBANK6 1FEFC 0 CODE 0 idataBANK6 dist/default/debug\2021_ENCM369.debug.o
-__size_of_TimeXus 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
+__pidataBANK6 106 0 CODE 0 idataBANK6 dist/default/debug\2021_ENCM369.debug.o
 __Lclrtext 0 0 ABS 0 clrtext dist/default/debug\2021_ENCM369.debug.o
-__pcstackCOMRAM 50E 0 COMRAM 1 cstackCOMRAM dist/default/debug\2021_ENCM369.debug.o
+__pcstackCOMRAM 551 0 COMRAM 1 cstackCOMRAM dist/default/debug\2021_ENCM369.debug.o
 _T0CON0bits 31A 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
-__end_of_main 1FE6C 0 CODE 0 text0 dist/default/debug\2021_ENCM369.debug.o
+InterruptTimerXus@bContinuous_ 554 0 COMRAM 1 cstackCOMRAM dist/default/debug\2021_ENCM369.debug.o
+__end_of_main 3C2 0 CODE 0 text0 dist/default/debug\2021_ENCM369.debug.o
+_T1CLK 321 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
+_T1CON 31E 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
+_T2CON 324 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 _TMR0H 319 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 _TMR0L 318 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
+_TMR1H 31D 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
+_TMR1L 31C 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 _TRISA 4C6 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __HRAM 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __Hbss 0 0 RAM 1 bss dist/default/debug\2021_ENCM369.debug.o
@@ -456,17 +570,19 @@ __LRAM 1 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __Lbss 0 0 RAM 1 bss dist/default/debug\2021_ENCM369.debug.o
 __Lram 0 0 ABS 0 ram dist/default/debug\2021_ENCM369.debug.o
 __Lsfr 0 0 ABS 0 sfr dist/default/debug\2021_ENCM369.debug.o
-__end_of_GpioSetup 1FDD2 0 CODE 0 text6 dist/default/debug\2021_ENCM369.debug.o
+__end_of_GpioSetup 3F4 0 CODE 0 text6 dist/default/debug\2021_ENCM369.debug.o
 __size_of_GpioSetup 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
 __HdataBANK6 0 0 ABS 0 dataBANK6 dist/default/debug\2021_ENCM369.debug.o
-__end_of_ClockSetup 1FDAA 0 CODE 0 text7 dist/default/debug\2021_ENCM369.debug.o
-__initialization 1FEB2 0 CODE 0 cinit dist/default/debug\2021_ENCM369.debug.o
-__pdataCOMRAM 512 0 COMRAM 1 dataCOMRAM dist/default/debug\2021_ENCM369.debug.o
+__size_of_InterruptSetup 0 0 ABS 0 - dist/default/debug\2021_ENCM369.debug.o
+__end_of_ClockSetup 42A 0 CODE 0 text7 dist/default/debug\2021_ENCM369.debug.o
+__initialization 206 0 CODE 0 cinit dist/default/debug\2021_ENCM369.debug.o
+__pdataCOMRAM 501 0 COMRAM 1 dataCOMRAM dist/default/debug\2021_ENCM369.debug.o
+_G_au8UserAppsinTable 600 0 BANK6 1 dataBANK6 dist/default/debug\2021_ENCM369.debug.o
+_InterruptTimerXus 26A 0 CODE 0 text2 dist/default/debug\2021_ENCM369.debug.o
 __Hfardata 0 0 FARRAM 0 fardata dist/default/debug\2021_ENCM369.debug.o
 __Hsmallconst 0 0 SMALLCONST 0 smallconst dist/default/debug\2021_ENCM369.debug.o
 __Lifardata 0 0 CODE 0 ifardata dist/default/debug\2021_ENCM369.debug.o
-UserAppRun@bDirectionUp 512 0 COMRAM 1 dataCOMRAM dist/default/debug\2021_ENCM369.debug.o
-_GpioSetup 1FDBC 0 CODE 0 text6 dist/default/debug\2021_ENCM369.debug.o
+_GpioSetup 3DE 0 CODE 0 text6 dist/default/debug\2021_ENCM369.debug.o
 __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/debug\2021_ENCM369.debug.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
@@ -492,21 +608,14 @@ __Hintsave_regs 0 0 BIGRAM 1 intsave_regs dist/default/debug\2021_ENCM369.debug.
 # and size are in units of delta. The file address is in units of bytes.
 # All other numeric quantities are in decimal.
 %SEGMENTS
-cinit 0 1FEB2 1FEB2 4A 1
-text0 0 1FE2C 1FE2C 40 1
-text1 0 1FE6C 1FE6C 46 1
-text2 0 1FDAC 1FDAC 10 1
-text3 0 1FDF4 1FDF4 38 1
-text4 0 1FDAA 1FDAA 2 1
-text5 0 1FDD2 1FDD2 22 1
-text6 0 1FDBC 1FDBC 16 1
-text7 0 1FDA8 1FDA8 2 1
-idataCOMRAM 0 1FDA7 1FDA7 1 1
-init 0 1FFFC 1FFFC 4 1
+ivt0x8 0 8 8 2F5 1
+text8 0 3C4 3C4 42 1
+text9 0 424 424 6 1
+text10 0 300 300 C2 1
+text11 0 408 408 1A 1
 reset_vec 0 0 0 4 1
-idataBANK6 0 1FEFC 1FEFC 100 1
 dataBANK6 1 600 600 100 1
-bssCOMRAM 1 501 501 12 1
+dataCOMRAM 1 501 501 56 1
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section
 # is indicated by %NOTES. The first line indicates the name and decimal
