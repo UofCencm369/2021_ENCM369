@@ -218,7 +218,7 @@ void UserAppInitialize(void)
     T1CON  = 0x31;  // b'00110001'
     
     // Test call to set frequency
-    InterruptTimerXus(16, true);
+ 
     
 } /* end UserAppInitialize() */
 
@@ -237,45 +237,7 @@ Promises:
 */
 void UserAppRun(void)
 {
-  static u16 au16Notes[] = {C4, C4, G4, G4, A4, A4, G4, F4, F4, E4, E4, D4, D4, C4, NN};
-  static u16 au16Times[] = {N4, N4, N4, N4, N4, N4, N2, N4, N4, N4, N4, N4, N4, N2, N1};
 
-  static u16 u16TimeToNoteChange = 1;
-  static u8  u8Index = 255;
-  
-  u8 u8Temp;
-   
-  u16TimeToNoteChange--;
-  if(u16TimeToNoteChange == 0)
-  {
-    /* Increment index and check for wrap around */
-    u8Index++;
-    if(u8Index == sizeof(au16Times) / sizeof(u16) )
-    {
-      u8Index = 0;
-    }
-    
-    /* Update the current frequency and time counter */
-    u16TimeToNoteChange = au16Times[u8Index];
-    
-    if(au16Notes[u8Index] == NN)
-    {
-      PIE3bits.TMR1IE = 0;
-      T1CONbits.ON = 0;
-    }
-    else
-    {
-      InterruptTimerXus(au16Notes[u8Index], true);
-    }
-    
-  }
-  
-  /* Turn off the note close to the end */
-  if(u16TimeToNoteChange == REGULAR_NOTE_ADJUSTMENT)
-  {
-    PIE3bits.TMR1IE = 0;
-    T1CONbits.ON = 0;    
-  }
   
 } /* end UserAppRun() */
 

@@ -56,7 +56,7 @@ void main(void)
     /* Drivers */
     
     /* Applications */
-    //UserAppRun();
+    UserAppRun();
     
     /* System sleep */
     HEARTBEAT_OFF();
