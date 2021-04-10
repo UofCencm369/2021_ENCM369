@@ -13,6 +13,9 @@
       <itemPath>xc.h</itemPath>
       <itemPath>interrupts.h</itemPath>
       <itemPath>music.h</itemPath>
+      <itemPath>crc.h</itemPath>
+      <itemPath>sd.h</itemPath>
+      <itemPath>spi.h</itemPath>
     </logicalFolder>
     <logicalFolder name="LinkerScript"
                    displayName="Linker Files"
@@ -25,6 +28,8 @@
       <itemPath>main.c</itemPath>
       <itemPath>user_app.c</itemPath>
       <itemPath>interrupts.c</itemPath>
+      <itemPath>sd.c</itemPath>
+      <itemPath>spi.c</itemPath>
     </logicalFolder>
     <logicalFolder name="ExternalFiles"
                    displayName="Important Files"

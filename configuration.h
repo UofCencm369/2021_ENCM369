@@ -99,7 +99,10 @@ Includes
 /* Common driver header files */
 
 /* Common application header files */
+#include "crc.h"
 #include "music.h"
+#include "sd.h"
+#include "spi.h"
 #include "user_app.h"
 
 

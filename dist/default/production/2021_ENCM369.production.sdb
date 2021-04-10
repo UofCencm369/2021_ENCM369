@@ -31,9 +31,9 @@
 [v _ClockSetup ClockSetup `(v  1 e 1 0 ]
 "90
 [v _GpioSetup GpioSetup `(v  1 e 1 0 ]
-"115
+"126
 [v _SysTickSetup SysTickSetup `(v  1 e 1 0 ]
-"150
+"161
 [v _SystemSleep SystemSleep `(v  1 e 1 0 ]
 "74 D:\_git\UofCencm369\2021_ENCM369\interrupts.c
 [v _InterruptSetup InterruptSetup `(v  1 e 1 0 ]
@@ -43,45 +43,121 @@
 [v _DEFAULT_ISR DEFAULT_ISR `IIL(v  1 e 1 0 ]
 "112
 [v _TMR1_ISR TMR1_ISR `IIH(v  1 e 1 0 ]
-"147
+"146
 [v _TMR2_ISR TMR2_ISR `IIH(v  1 e 1 0 ]
 "34 D:\_git\UofCencm369\2021_ENCM369\main.c
 [v _main main `(v  1 e 1 0 ]
-"147 D:\_git\UofCencm369\2021_ENCM369\user_app.c
-[v _InterruptTimerXus InterruptTimerXus `(v  1 e 1 0 ]
-"204
+"46 D:\_git\UofCencm369\2021_ENCM369\sd.c
+[v _SD_Init SD_Init `(v  1 e 1 0 ]
+"115
+[v _SD_SendCommand SD_SendCommand `(v  1 e 1 0 ]
+"151
+[v _SD_Read8bitResponse SD_Read8bitResponse `(v  1 e 1 0 ]
+"175
+[v _SD_Check8bitResponse SD_Check8bitResponse `(a  1 e 1 0 ]
+"190
+[v _SD_Read40bitResponse SD_Read40bitResponse `(v  1 e 1 0 ]
+"219
+[v _SD_Check40bitResponse SD_Check40bitResponse `(a  1 e 1 0 ]
+"283
+[v _SD_ReadBlock SD_ReadBlock `(a  1 e 1 0 ]
+"35 D:\_git\UofCencm369\2021_ENCM369\spi.c
+[v _SPI_Init SPI_Init `(v  1 e 1 0 ]
+"60
+[v _SPI_Write SPI_Write `(v  1 e 1 0 ]
+"75
+[v _SPI_Read SPI_Read `(uc  1 e 1 0 ]
+"204 D:\_git\UofCencm369\2021_ENCM369\user_app.c
 [v _UserAppInitialize UserAppInitialize `(v  1 e 1 0 ]
+"235
+[v _UserAppRun UserAppRun `(v  1 e 1 0 ]
+"6 D:\_git\UofCencm369\2021_ENCM369/crc.h
+[v _CRCTable CRCTable `C[256]uc  1 e 256 0 ]
 "3158 C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h
 [v _DAC1DATL DAC1DATL `VEuc  1 e 1 @125 ]
 "3236
 [v _DAC1CON DAC1CON `VEuc  1 e 1 @127 ]
+"3339
+[v _SPI1RXB SPI1RXB `VEuc  1 e 1 @128 ]
+"3409
+[v _SPI1TXB SPI1TXB `VEuc  1 e 1 @129 ]
+"3526
+[v _SPI1CON0 SPI1CON0 `VEuc  1 e 1 @132 ]
+[s S557 . 1 `uc 1 BMODE 1 0 :1:0 
+`uc 1 MST 1 0 :1:1 
+`uc 1 LSBF 1 0 :1:2 
+`uc 1 . 1 0 :4:3 
+`uc 1 EN 1 0 :1:7 
+]
+"3547
+[s S563 . 1 `uc 1 SPI1BMODE 1 0 :1:0 
+`uc 1 SPI1MST 1 0 :1:1 
+`uc 1 SPI1LSBF 1 0 :1:2 
+`uc 1 . 1 0 :4:3 
+`uc 1 SPI1SPIEN 1 0 :1:7 
+]
+[u S569 . 1 `S557 1 . 1 0 `S563 1 . 1 0 ]
+[v _SPI1CON0bits SPI1CON0bits `VES569  1 e 1 @132 ]
+"3592
+[v _SPI1CON1 SPI1CON1 `VEuc  1 e 1 @133 ]
+"3694
+[v _SPI1CON2 SPI1CON2 `VEuc  1 e 1 @134 ]
+[s S592 . 1 `uc 1 RXR 1 0 :1:0 
+`uc 1 TXR 1 0 :1:1 
+`uc 1 SSET 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 SSFLT 1 0 :1:6 
+`uc 1 BUSY 1 0 :1:7 
+]
+"3717
+[s S599 . 1 `uc 1 SPI1RXR 1 0 :1:0 
+`uc 1 SPI1TXR 1 0 :1:1 
+`uc 1 SPI1SSET 1 0 :1:2 
+`uc 1 . 1 0 :3:3 
+`uc 1 SPI1SSFLT 1 0 :1:6 
+`uc 1 SPI1BUSY 1 0 :1:7 
+]
+[u S606 . 1 `S592 1 . 1 0 `S599 1 . 1 0 ]
+[v _SPI1CON2bits SPI1CON2bits `VES606  1 e 1 @134 ]
+"3894
+[v _SPI1BAUD SPI1BAUD `VEuc  1 e 1 @137 ]
+"4148
+[v _SPI1CLK SPI1CLK `VEuc  1 e 1 @140 ]
+"9653
+[v _RC2PPS RC2PPS `VEuc  1 e 1 @531 ]
+"9765
+[v _RC4PPS RC4PPS `VEuc  1 e 1 @533 ]
+"13187
+[v _SPI1SCKPPS SPI1SCKPPS `VEuc  1 e 1 @618 ]
+"13253
+[v _SPI1SDIPPS SPI1SDIPPS `VEuc  1 e 1 @619 ]
 "22235
 [v _TMR0L TMR0L `VEuc  1 e 1 @792 ]
 "22373
 [v _TMR0H TMR0H `VEuc  1 e 1 @793 ]
 "22627
 [v _T0CON0 T0CON0 `VEuc  1 e 1 @794 ]
-[s S121 . 1 `uc 1 OUTPS 1 0 :4:0 
+[s S154 . 1 `uc 1 OUTPS 1 0 :4:0 
 `uc 1 MD16 1 0 :1:4 
 `uc 1 OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 EN 1 0 :1:7 
 ]
 "22655
-[s S127 . 1 `uc 1 T0OUTPS 1 0 :4:0 
+[s S160 . 1 `uc 1 T0OUTPS 1 0 :4:0 
 `uc 1 T0MD16 1 0 :1:4 
 `uc 1 T0OUT 1 0 :1:5 
 `uc 1 . 1 0 :1:6 
 `uc 1 T0EN 1 0 :1:7 
 ]
-[s S133 . 1 `uc 1 OUTPS0 1 0 :1:0 
+[s S166 . 1 `uc 1 OUTPS0 1 0 :1:0 
 `uc 1 OUTPS1 1 0 :1:1 
 `uc 1 OUTPS2 1 0 :1:2 
 `uc 1 OUTPS3 1 0 :1:3 
 `uc 1 T016BIT 1 0 :1:4 
 ]
-[u S139 . 1 `S121 1 . 1 0 `S127 1 . 1 0 `S133 1 . 1 0 ]
-[v _T0CON0bits T0CON0bits `VES139  1 e 1 @794 ]
+[u S172 . 1 `S154 1 . 1 0 `S160 1 . 1 0 `S166 1 . 1 0 ]
+[v _T0CON0bits T0CON0bits `VES172  1 e 1 @794 ]
 "22725
 [v _T0CON1 T0CON1 `VEuc  1 e 1 @795 ]
 "22867
@@ -90,29 +166,29 @@
 [v _TMR1H TMR1H `VEuc  1 e 1 @797 ]
 "23007
 [v _T1CON T1CON `VEuc  1 e 1 @798 ]
-[s S176 . 1 `uc 1 ON 1 0 :1:0 
+[s S209 . 1 `uc 1 ON 1 0 :1:0 
 `uc 1 RD16 1 0 :1:1 
 `uc 1 NOT_SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 CKPS 1 0 :2:4 
 ]
 "23043
-[s S182 . 1 `uc 1 TMR1ON 1 0 :1:0 
+[s S215 . 1 `uc 1 TMR1ON 1 0 :1:0 
 `uc 1 T1RD16 1 0 :1:1 
 `uc 1 NOT_T1SYNC 1 0 :1:2 
 `uc 1 . 1 0 :1:3 
 `uc 1 T1CKPS0 1 0 :1:4 
 `uc 1 T1CKPS1 1 0 :1:5 
 ]
-[s S189 . 1 `uc 1 . 1 0 :4:0 
+[s S222 . 1 `uc 1 . 1 0 :4:0 
 `uc 1 CKPS0 1 0 :1:4 
 `uc 1 CKPS1 1 0 :1:5 
 ]
-[s S193 . 1 `uc 1 . 1 0 :1:0 
+[s S226 . 1 `uc 1 . 1 0 :1:0 
 `uc 1 RD161 1 0 :1:1 
 ]
-[u S196 . 1 `S176 1 . 1 0 `S182 1 . 1 0 `S189 1 . 1 0 `S193 1 . 1 0 ]
-[v _T1CONbits T1CONbits `VES196  1 e 1 @798 ]
+[u S229 . 1 `S209 1 . 1 0 `S215 1 . 1 0 `S222 1 . 1 0 `S226 1 . 1 0 ]
+[v _T1CONbits T1CONbits `VES229  1 e 1 @798 ]
 "23197
 [v _T1GCON T1GCON `VEuc  1 e 1 @799 ]
 "23601
@@ -125,7 +201,9 @@
 [v _T2CLKCON T2CLKCON `VEuc  1 e 1 @806 ]
 "37918
 [v _ANSELA ANSELA `VEuc  1 e 1 @1024 ]
-[s S54 . 1 `uc 1 SPI1RXIE 1 0 :1:0 
+"38910
+[v _ANSELC ANSELC `VEuc  1 e 1 @1040 ]
+[s S61 . 1 `uc 1 SPI1RXIE 1 0 :1:0 
 `uc 1 SPI1TXIE 1 0 :1:1 
 `uc 1 SPI1IE 1 0 :1:2 
 `uc 1 TMR2IE 1 0 :1:3 
@@ -135,11 +213,11 @@
 `uc 1 TMR0IE 1 0 :1:7 
 ]
 "44013
-[u S63 . 1 `S54 1 . 1 0 ]
+[u S70 . 1 `S61 1 . 1 0 ]
 "44013
 "44013
-[v _PIE3bits PIE3bits `VES63  1 e 1 @1185 ]
-[s S297 . 1 `uc 1 SWIF 1 0 :1:0 
+[v _PIE3bits PIE3bits `VES70  1 e 1 @1185 ]
+[s S325 . 1 `uc 1 SWIF 1 0 :1:0 
 `uc 1 HLVDIF 1 0 :1:1 
 `uc 1 OSFIF 1 0 :1:2 
 `uc 1 CSWIF 1 0 :1:3 
@@ -149,11 +227,11 @@
 `uc 1 IOCIF 1 0 :1:7 
 ]
 "44728
-[u S306 . 1 `S297 1 . 1 0 ]
+[u S334 . 1 `S325 1 . 1 0 ]
 "44728
 "44728
-[v _PIR0bits PIR0bits `VES306  1 e 1 @1198 ]
-[s S32 . 1 `uc 1 SPI1RXIF 1 0 :1:0 
+[v _PIR0bits PIR0bits `VES334  1 e 1 @1198 ]
+[s S39 . 1 `uc 1 SPI1RXIF 1 0 :1:0 
 `uc 1 SPI1TXIF 1 0 :1:1 
 `uc 1 SPI1IF 1 0 :1:2 
 `uc 1 TMR2IF 1 0 :1:3 
@@ -163,15 +241,33 @@
 `uc 1 TMR0IF 1 0 :1:7 
 ]
 "44887
-[u S41 . 1 `S32 1 . 1 0 ]
+[u S48 . 1 `S39 1 . 1 0 ]
 "44887
 "44887
-[v _PIR3bits PIR3bits `VES41  1 e 1 @1201 ]
+[v _PIR3bits PIR3bits `VES48  1 e 1 @1201 ]
 "45585
 [v _LATA LATA `VEuc  1 e 1 @1214 ]
+"45709
+[v _LATC LATC `VEuc  1 e 1 @1216 ]
+[s S444 . 1 `uc 1 LATC0 1 0 :1:0 
+`uc 1 LATC1 1 0 :1:1 
+`uc 1 LATC2 1 0 :1:2 
+`uc 1 LATC3 1 0 :1:3 
+`uc 1 LATC4 1 0 :1:4 
+`uc 1 LATC5 1 0 :1:5 
+`uc 1 LATC6 1 0 :1:6 
+`uc 1 LATC7 1 0 :1:7 
+]
+"45726
+[u S453 . 1 `S444 1 . 1 0 ]
+"45726
+"45726
+[v _LATCbits LATCbits `VES453  1 e 1 @1216 ]
 "45840
 [v _TRISA TRISA `VEuc  1 e 1 @1222 ]
-[s S271 . 1 `uc 1 INT0EDG 1 0 :1:0 
+"45964
+[v _TRISC TRISC `VEuc  1 e 1 @1224 ]
+[s S299 . 1 `uc 1 INT0EDG 1 0 :1:0 
 `uc 1 INT1EDG 1 0 :1:1 
 `uc 1 INT2EDG 1 0 :1:2 
 `uc 1 . 1 0 :2:3 
@@ -180,57 +276,163 @@
 `uc 1 GIE 1 0 :1:7 
 ]
 "46384
-[s S279 . 1 `uc 1 . 1 0 :7:0 
+[s S307 . 1 `uc 1 . 1 0 :7:0 
 `uc 1 GIEH 1 0 :1:7 
 ]
 "46384
-[u S282 . 1 `S271 1 . 1 0 `S279 1 . 1 0 ]
+[u S310 . 1 `S299 1 . 1 0 `S307 1 . 1 0 ]
 "46384
 "46384
-[v _INTCON0bits INTCON0bits `VES282  1 e 1 @1238 ]
+[v _INTCON0bits INTCON0bits `VES310  1 e 1 @1238 ]
 "13 D:\_git\UofCencm369\2021_ENCM369\main.c
 [v _G_u32SystemTime1ms G_u32SystemTime1ms `VEul  1 e 4 0 ]
 "14
 [v _G_u32SystemTime1s G_u32SystemTime1s `VEul  1 e 4 0 ]
 "15
 [v _G_u8SystemFlags G_u8SystemFlags `VEuc  1 e 1 0 ]
+"16 D:\_git\UofCencm369\2021_ENCM369\sd.c
+[v _G_u8SDResp8 G_u8SDResp8 `VEuc  1 e 1 0 ]
+"17
+[v _G_u8SDCurrentRxBuffer G_u8SDCurrentRxBuffer `VEuc  1 e 1 0 ]
+"19
+[v _G_au8SDResp40 G_au8SDResp40 `[5]uc  1 e 5 0 ]
+"20
+[v _G_au8SDWriteBuffer G_au8SDWriteBuffer `[512]uc  1 e 512 0 ]
+"21
+[v _G_au8SDReadBuffer0 G_au8SDReadBuffer0 `[512]uc  1 e 512 0 ]
+"22
+[v _G_au8SDReadBuffer1 G_au8SDReadBuffer1 `[512]uc  1 e 512 0 ]
 "33 D:\_git\UofCencm369\2021_ENCM369\user_app.c
 [v _G_u8UserAppFlags G_u8UserAppFlags `VEuc  1 e 1 0 ]
 "34
 [v _G_u8UserAppTimePeriodHi G_u8UserAppTimePeriodHi `VEuc  1 e 1 0 ]
 "35
 [v _G_u8UserAppTimePeriodLo G_u8UserAppTimePeriodLo `VEuc  1 e 1 0 ]
-"37
-[v _G_au8UserAppsinTable G_au8UserAppsinTable `[256]uc  1 e 256 0 ]
 "34 D:\_git\UofCencm369\2021_ENCM369\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"68
+"73
 } 0
-"204 D:\_git\UofCencm369\2021_ENCM369\user_app.c
+"235 D:\_git\UofCencm369\2021_ENCM369\user_app.c
+[v _UserAppRun UserAppRun `(v  1 e 1 0 ]
+{
+"239
+} 0
+"204
 [v _UserAppInitialize UserAppInitialize `(v  1 e 1 0 ]
 {
-"223
+"220
 } 0
-"147
-[v _InterruptTimerXus InterruptTimerXus `(v  1 e 1 0 ]
-{
-"149
-[v InterruptTimerXus@u16Temp u16Temp `us  1 a 2 4 ]
-"147
-[v InterruptTimerXus@u16TimeXus_ u16TimeXus_ `us  1 p 2 1 ]
-[v InterruptTimerXus@bContinuous_ bContinuous_ `a  1 p 1 3 ]
-"182
-} 0
-"150 D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
+"161 D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
 [v _SystemSleep SystemSleep `(v  1 e 1 0 ]
 {
-"155
+"166
 } 0
-"115
+"126
 [v _SysTickSetup SysTickSetup `(v  1 e 1 0 ]
 {
-"133
+"144
+} 0
+"35 D:\_git\UofCencm369\2021_ENCM369\spi.c
+[v _SPI_Init SPI_Init `(v  1 e 1 0 ]
+{
+"55
+} 0
+"283 D:\_git\UofCencm369\2021_ENCM369\sd.c
+[v _SD_ReadBlock SD_ReadBlock `(a  1 e 1 0 ]
+{
+[v SD_ReadBlock@u8Addr3_ u8Addr3_ `uc  1 a 1 wreg ]
+"325
+[v SD_ReadBlock@i i `us  1 a 2 16 ]
+"286
+[v SD_ReadBlock@pu8RxBuffer pu8RxBuffer `*.39uc  1 a 2 13 ]
+"285
+[v SD_ReadBlock@u8ReadMessage u8ReadMessage `uc  1 a 1 15 ]
+"283
+[v SD_ReadBlock@u8Addr3_ u8Addr3_ `uc  1 a 1 wreg ]
+[v SD_ReadBlock@u8Addr2_ u8Addr2_ `uc  1 p 1 9 ]
+[v SD_ReadBlock@u8Addr1_ u8Addr1_ `uc  1 p 1 10 ]
+[v SD_ReadBlock@u8Addr0_ u8Addr0_ `uc  1 p 1 11 ]
+[v SD_ReadBlock@u8Addr3_ u8Addr3_ `uc  1 a 1 12 ]
+"339
+} 0
+"46
+[v _SD_Init SD_Init `(v  1 e 1 0 ]
+{
+"107
+} 0
+"115
+[v _SD_SendCommand SD_SendCommand `(v  1 e 1 0 ]
+{
+[v SD_SendCommand@u8CMD6bit_ u8CMD6bit_ `uc  1 a 1 wreg ]
+"118
+[v SD_SendCommand@u8Checksum u8Checksum `uc  1 a 1 8 ]
+"117
+[v SD_SendCommand@u8ByteToSend u8ByteToSend `uc  1 a 1 7 ]
+"115
+[v SD_SendCommand@u8CMD6bit_ u8CMD6bit_ `uc  1 a 1 wreg ]
+[v SD_SendCommand@u8Arg3_ u8Arg3_ `uc  1 p 1 2 ]
+[v SD_SendCommand@u8Arg2_ u8Arg2_ `uc  1 p 1 3 ]
+[v SD_SendCommand@u8Arg1_ u8Arg1_ `uc  1 p 1 4 ]
+[v SD_SendCommand@u8Arg0_ u8Arg0_ `uc  1 p 1 5 ]
+[v SD_SendCommand@u8CMD6bit_ u8CMD6bit_ `uc  1 a 1 6 ]
+"145
+} 0
+"60 D:\_git\UofCencm369\2021_ENCM369\spi.c
+[v _SPI_Write SPI_Write `(v  1 e 1 0 ]
+{
+[v SPI_Write@u8DataByte_ u8DataByte_ `uc  1 a 1 wreg ]
+[v SPI_Write@u8DataByte_ u8DataByte_ `uc  1 a 1 wreg ]
+"63
+[v SPI_Write@u8DataByte_ u8DataByte_ `uc  1 a 1 1 ]
+"70
+} 0
+"151 D:\_git\UofCencm369\2021_ENCM369\sd.c
+[v _SD_Read8bitResponse SD_Read8bitResponse `(v  1 e 1 0 ]
+{
+"153
+[v SD_Read8bitResponse@u8ReadMessage u8ReadMessage `uc  1 a 1 1 ]
+"170
+} 0
+"190
+[v _SD_Read40bitResponse SD_Read40bitResponse `(v  1 e 1 0 ]
+{
+"192
+[v SD_Read40bitResponse@u8ReadMessage u8ReadMessage `uc  1 a 1 1 ]
+"213
+} 0
+"75 D:\_git\UofCencm369\2021_ENCM369\spi.c
+[v _SPI_Read SPI_Read `(uc  1 e 1 0 ]
+{
+"84
+} 0
+"175 D:\_git\UofCencm369\2021_ENCM369\sd.c
+[v _SD_Check8bitResponse SD_Check8bitResponse `(a  1 e 1 0 ]
+{
+[v SD_Check8bitResponse@u8Byte_ u8Byte_ `uc  1 a 1 wreg ]
+"177
+[v SD_Check8bitResponse@bMatch bMatch `a  1 a 1 2 ]
+"175
+[v SD_Check8bitResponse@u8Byte_ u8Byte_ `uc  1 a 1 wreg ]
+"177
+[v SD_Check8bitResponse@u8Byte_ u8Byte_ `uc  1 a 1 1 ]
+"185
+} 0
+"219
+[v _SD_Check40bitResponse SD_Check40bitResponse `(a  1 e 1 0 ]
+{
+[v SD_Check40bitResponse@u8Byte4_ u8Byte4_ `uc  1 a 1 wreg ]
+"221
+[v SD_Check40bitResponse@bMatch bMatch `a  1 a 1 6 ]
+"219
+[v SD_Check40bitResponse@u8Byte4_ u8Byte4_ `uc  1 a 1 wreg ]
+[v SD_Check40bitResponse@u8Byte3_ u8Byte3_ `uc  1 p 1 1 ]
+[v SD_Check40bitResponse@u8Byte2_ u8Byte2_ `uc  1 p 1 2 ]
+[v SD_Check40bitResponse@u8Byte1_ u8Byte1_ `uc  1 p 1 3 ]
+[v SD_Check40bitResponse@u8Byte0_ u8Byte0_ `uc  1 p 1 4 ]
+"221
+[v SD_Check40bitResponse@u8Byte4_ u8Byte4_ `uc  1 a 1 5 ]
+"229
 } 0
 "74 D:\_git\UofCencm369\2021_ENCM369\interrupts.c
 [v _InterruptSetup InterruptSetup `(v  1 e 1 0 ]
@@ -240,7 +442,7 @@
 "90 D:\_git\UofCencm369\2021_ENCM369\encm369_pic18.c
 [v _GpioSetup GpioSetup `(v  1 e 1 0 ]
 {
-"100
+"111
 } 0
 "71
 [v _ClockSetup ClockSetup `(v  1 e 1 0 ]
@@ -262,12 +464,10 @@
 "112
 [v _TMR1_ISR TMR1_ISR `IIH(v  1 e 1 0 ]
 {
-"114
-[v TMR1_ISR@u8Index u8Index `uc  1 s 1 u8Index ]
-"143
+"142
 } 0
-"147
+"146
 [v _TMR2_ISR TMR2_ISR `IIH(v  1 e 1 0 ]
 {
-"163
+"162
 } 0

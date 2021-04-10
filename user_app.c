@@ -27,7 +27,7 @@ PROTECTED FUNCTIONS
 
 /***********************************************************************************************************************
 Global variable definitions with scope across entire project.
-All Global variable names shall start with "G_<type>UserApp1"
+All Global variable names shall start with "G_<type>UserApp"
 ***********************************************************************************************************************/
 /* New variables */
 volatile u8 G_u8UserAppFlags;                  /*!< @brief Global state flags */
@@ -161,7 +161,7 @@ void InterruptTimerXus(u16 u16TimeXus_, bool bContinuous_)
   u16Temp = u16TimeXus_ << 1;
    
   /* Calculate, save, and preload TMR1H and TMR1L based on u16TimeXus_ */
-  u16Temp = 65535 - u16TimeXus_;
+  u16Temp = 65535 - u16Temp;
   G_u8UserAppTimePeriodHi = (u8)( (u16Temp >> 8) & 0x00FF);
   G_u8UserAppTimePeriodLo = (u8)( u16Temp & 0x00FF);
   TMR1H = G_u8UserAppTimePeriodHi;
@@ -216,9 +216,6 @@ void UserAppInitialize(void)
     T1GCON = 0x00;
     T1CLK  = 0x01;  
     T1CON  = 0x31;  // b'00110001'
-    
-    // Test call to set frequency
- 
     
 } /* end UserAppInitialize() */
 

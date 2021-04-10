@@ -5,6 +5,27 @@ Version 4.0 HI-TECH Software Intermediate Code
 "45840
 [; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 45840: extern volatile unsigned char TRISA __attribute__((address(0x4C6)));
 [v _TRISA `Vuc ~T0 @X0 0 e@1222 ]
+"38910
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 38910: extern volatile unsigned char ANSELC __attribute__((address(0x410)));
+[v _ANSELC `Vuc ~T0 @X0 0 e@1040 ]
+"45964
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 45964: extern volatile unsigned char TRISC __attribute__((address(0x4C8)));
+[v _TRISC `Vuc ~T0 @X0 0 e@1224 ]
+"45709
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 45709: extern volatile unsigned char LATC __attribute__((address(0x4C0)));
+[v _LATC `Vuc ~T0 @X0 0 e@1216 ]
+"9653
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 9653: extern volatile unsigned char RC2PPS __attribute__((address(0x213)));
+[v _RC2PPS `Vuc ~T0 @X0 0 e@531 ]
+"9765
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 9765: extern volatile unsigned char RC4PPS __attribute__((address(0x215)));
+[v _RC4PPS `Vuc ~T0 @X0 0 e@533 ]
+"13187
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 13187: extern volatile unsigned char SPI1SCKPPS __attribute__((address(0x26A)));
+[v _SPI1SCKPPS `Vuc ~T0 @X0 0 e@618 ]
+"13253
+[; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 13253: extern volatile unsigned char SPI1SDIPPS __attribute__((address(0x26B)));
+[v _SPI1SDIPPS `Vuc ~T0 @X0 0 e@619 ]
 "3236
 [; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 3236: extern volatile unsigned char DAC1CON __attribute__((address(0x07F)));
 [v _DAC1CON `Vuc ~T0 @X0 0 e@127 ]
@@ -2572,6 +2593,269 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47642
 [; ;C:/Users/engenuics/.mchp_packs/Microchip/PIC18F-Q_DFP/1.9.175/xc8\pic\include\proc\pic18f27q43.h: 47642: __asm("TOSU equ 04FFh");
 [; <" TOSU equ 04FFh ;# ">
+"6 ./crc.h
+[; ;./crc.h: 6: const u8 CRCTable[256] = {
+[v _CRCTable `Cuc ~T0 @X0 -> 256 `i e ]
+[i _CRCTable
+:U ..
+-> -> 0 `i `uc
+-> -> 9 `i `uc
+-> -> 18 `i `uc
+-> -> 27 `i `uc
+-> -> 36 `i `uc
+-> -> 45 `i `uc
+-> -> 54 `i `uc
+-> -> 63 `i `uc
+-> -> 72 `i `uc
+-> -> 65 `i `uc
+-> -> 90 `i `uc
+-> -> 83 `i `uc
+-> -> 108 `i `uc
+-> -> 101 `i `uc
+-> -> 126 `i `uc
+-> -> 119 `i `uc
+-> -> 25 `i `uc
+-> -> 16 `i `uc
+-> -> 11 `i `uc
+-> -> 2 `i `uc
+-> -> 61 `i `uc
+-> -> 52 `i `uc
+-> -> 47 `i `uc
+-> -> 38 `i `uc
+-> -> 81 `i `uc
+-> -> 88 `i `uc
+-> -> 67 `i `uc
+-> -> 74 `i `uc
+-> -> 117 `i `uc
+-> -> 124 `i `uc
+-> -> 103 `i `uc
+-> -> 110 `i `uc
+-> -> 50 `i `uc
+-> -> 59 `i `uc
+-> -> 32 `i `uc
+-> -> 41 `i `uc
+-> -> 22 `i `uc
+-> -> 31 `i `uc
+-> -> 4 `i `uc
+-> -> 13 `i `uc
+-> -> 122 `i `uc
+-> -> 115 `i `uc
+-> -> 104 `i `uc
+-> -> 97 `i `uc
+-> -> 94 `i `uc
+-> -> 87 `i `uc
+-> -> 76 `i `uc
+-> -> 69 `i `uc
+-> -> 43 `i `uc
+-> -> 34 `i `uc
+-> -> 57 `i `uc
+-> -> 48 `i `uc
+-> -> 15 `i `uc
+-> -> 6 `i `uc
+-> -> 29 `i `uc
+-> -> 20 `i `uc
+-> -> 99 `i `uc
+-> -> 106 `i `uc
+-> -> 113 `i `uc
+-> -> 120 `i `uc
+-> -> 71 `i `uc
+-> -> 78 `i `uc
+-> -> 85 `i `uc
+-> -> 92 `i `uc
+-> -> 100 `i `uc
+-> -> 109 `i `uc
+-> -> 118 `i `uc
+-> -> 127 `i `uc
+-> -> 64 `i `uc
+-> -> 73 `i `uc
+-> -> 82 `i `uc
+-> -> 91 `i `uc
+-> -> 44 `i `uc
+-> -> 37 `i `uc
+-> -> 62 `i `uc
+-> -> 55 `i `uc
+-> -> 8 `i `uc
+-> -> 1 `i `uc
+-> -> 26 `i `uc
+-> -> 19 `i `uc
+-> -> 125 `i `uc
+-> -> 116 `i `uc
+-> -> 111 `i `uc
+-> -> 102 `i `uc
+-> -> 89 `i `uc
+-> -> 80 `i `uc
+-> -> 75 `i `uc
+-> -> 66 `i `uc
+-> -> 53 `i `uc
+-> -> 60 `i `uc
+-> -> 39 `i `uc
+-> -> 46 `i `uc
+-> -> 17 `i `uc
+-> -> 24 `i `uc
+-> -> 3 `i `uc
+-> -> 10 `i `uc
+-> -> 86 `i `uc
+-> -> 95 `i `uc
+-> -> 68 `i `uc
+-> -> 77 `i `uc
+-> -> 114 `i `uc
+-> -> 123 `i `uc
+-> -> 96 `i `uc
+-> -> 105 `i `uc
+-> -> 30 `i `uc
+-> -> 23 `i `uc
+-> -> 12 `i `uc
+-> -> 5 `i `uc
+-> -> 58 `i `uc
+-> -> 51 `i `uc
+-> -> 40 `i `uc
+-> -> 33 `i `uc
+-> -> 79 `i `uc
+-> -> 70 `i `uc
+-> -> 93 `i `uc
+-> -> 84 `i `uc
+-> -> 107 `i `uc
+-> -> 98 `i `uc
+-> -> 121 `i `uc
+-> -> 112 `i `uc
+-> -> 7 `i `uc
+-> -> 14 `i `uc
+-> -> 21 `i `uc
+-> -> 28 `i `uc
+-> -> 35 `i `uc
+-> -> 42 `i `uc
+-> -> 49 `i `uc
+-> -> 56 `i `uc
+-> -> 65 `i `uc
+-> -> 72 `i `uc
+-> -> 83 `i `uc
+-> -> 90 `i `uc
+-> -> 101 `i `uc
+-> -> 108 `i `uc
+-> -> 119 `i `uc
+-> -> 126 `i `uc
+-> -> 9 `i `uc
+-> -> 0 `i `uc
+-> -> 27 `i `uc
+-> -> 18 `i `uc
+-> -> 45 `i `uc
+-> -> 36 `i `uc
+-> -> 63 `i `uc
+-> -> 54 `i `uc
+-> -> 88 `i `uc
+-> -> 81 `i `uc
+-> -> 74 `i `uc
+-> -> 67 `i `uc
+-> -> 124 `i `uc
+-> -> 117 `i `uc
+-> -> 110 `i `uc
+-> -> 103 `i `uc
+-> -> 16 `i `uc
+-> -> 25 `i `uc
+-> -> 2 `i `uc
+-> -> 11 `i `uc
+-> -> 52 `i `uc
+-> -> 61 `i `uc
+-> -> 38 `i `uc
+-> -> 47 `i `uc
+-> -> 115 `i `uc
+-> -> 122 `i `uc
+-> -> 97 `i `uc
+-> -> 104 `i `uc
+-> -> 87 `i `uc
+-> -> 94 `i `uc
+-> -> 69 `i `uc
+-> -> 76 `i `uc
+-> -> 59 `i `uc
+-> -> 50 `i `uc
+-> -> 41 `i `uc
+-> -> 32 `i `uc
+-> -> 31 `i `uc
+-> -> 22 `i `uc
+-> -> 13 `i `uc
+-> -> 4 `i `uc
+-> -> 106 `i `uc
+-> -> 99 `i `uc
+-> -> 120 `i `uc
+-> -> 113 `i `uc
+-> -> 78 `i `uc
+-> -> 71 `i `uc
+-> -> 92 `i `uc
+-> -> 85 `i `uc
+-> -> 34 `i `uc
+-> -> 43 `i `uc
+-> -> 48 `i `uc
+-> -> 57 `i `uc
+-> -> 6 `i `uc
+-> -> 15 `i `uc
+-> -> 20 `i `uc
+-> -> 29 `i `uc
+-> -> 37 `i `uc
+-> -> 44 `i `uc
+-> -> 55 `i `uc
+-> -> 62 `i `uc
+-> -> 1 `i `uc
+-> -> 8 `i `uc
+-> -> 19 `i `uc
+-> -> 26 `i `uc
+-> -> 109 `i `uc
+-> -> 100 `i `uc
+-> -> 127 `i `uc
+-> -> 118 `i `uc
+-> -> 73 `i `uc
+-> -> 64 `i `uc
+-> -> 91 `i `uc
+-> -> 82 `i `uc
+-> -> 60 `i `uc
+-> -> 53 `i `uc
+-> -> 46 `i `uc
+-> -> 39 `i `uc
+-> -> 24 `i `uc
+-> -> 17 `i `uc
+-> -> 10 `i `uc
+-> -> 3 `i `uc
+-> -> 116 `i `uc
+-> -> 125 `i `uc
+-> -> 102 `i `uc
+-> -> 111 `i `uc
+-> -> 80 `i `uc
+-> -> 89 `i `uc
+-> -> 66 `i `uc
+-> -> 75 `i `uc
+-> -> 23 `i `uc
+-> -> 30 `i `uc
+-> -> 5 `i `uc
+-> -> 12 `i `uc
+-> -> 51 `i `uc
+-> -> 58 `i `uc
+-> -> 33 `i `uc
+-> -> 40 `i `uc
+-> -> 95 `i `uc
+-> -> 86 `i `uc
+-> -> 77 `i `uc
+-> -> 68 `i `uc
+-> -> 123 `i `uc
+-> -> 114 `i `uc
+-> -> 105 `i `uc
+-> -> 96 `i `uc
+-> -> 14 `i `uc
+-> -> 7 `i `uc
+-> -> 28 `i `uc
+-> -> 21 `i `uc
+-> -> 42 `i `uc
+-> -> 35 `i `uc
+-> -> 56 `i `uc
+-> -> 49 `i `uc
+-> -> 70 `i `uc
+-> -> 79 `i `uc
+-> -> 84 `i `uc
+-> -> 93 `i `uc
+-> -> 98 `i `uc
+-> -> 107 `i `uc
+-> -> 112 `i `uc
+-> -> 121 `i `uc
+..
+]
 "71 encm369_pic18.c
 [; ;encm369_pic18.c: 71: void ClockSetup(void)
 [v _ClockSetup `(v ~T0 @X0 1 ef ]
@@ -2599,67 +2883,88 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;encm369_pic18.c: 94:   TRISA = 0x00;
 [e = _TRISA -> -> 0 `i `uc ]
 "97
-[; ;encm369_pic18.c: 97:   DAC1CON = 0xA0;
-[e = _DAC1CON -> -> 160 `i `uc ]
+[; ;encm369_pic18.c: 97:   ANSELC = 0x00;
+[e = _ANSELC -> -> 0 `i `uc ]
 "98
-[; ;encm369_pic18.c: 98:   DAC1DATL = 0;
+[; ;encm369_pic18.c: 98:   TRISC = 0x6B;
+[e = _TRISC -> -> 107 `i `uc ]
+"99
+[; ;encm369_pic18.c: 99:   LATC = 0x94;
+[e = _LATC -> -> 148 `i `uc ]
+"101
+[; ;encm369_pic18.c: 101:   RC2PPS = 0x31;
+[e = _RC2PPS -> -> 49 `i `uc ]
+"102
+[; ;encm369_pic18.c: 102:   RC4PPS = 0x32;
+[e = _RC4PPS -> -> 50 `i `uc ]
+"104
+[; ;encm369_pic18.c: 104:   SPI1SCKPPS = 0x12;
+[e = _SPI1SCKPPS -> -> 18 `i `uc ]
+"105
+[; ;encm369_pic18.c: 105:   SPI1SDIPPS = 0x13;
+[e = _SPI1SDIPPS -> -> 19 `i `uc ]
+"108
+[; ;encm369_pic18.c: 108:   DAC1CON = 0xA0;
+[e = _DAC1CON -> -> 160 `i `uc ]
+"109
+[; ;encm369_pic18.c: 109:   DAC1DATL = 0;
 [e = _DAC1DATL -> -> 0 `i `uc ]
-"100
-[; ;encm369_pic18.c: 100: }
+"111
+[; ;encm369_pic18.c: 111: }
 [e :UE 2273 ]
 }
-"115
-[; ;encm369_pic18.c: 115: void SysTickSetup(void)
+"126
+[; ;encm369_pic18.c: 126: void SysTickSetup(void)
 [v _SysTickSetup `(v ~T0 @X0 1 ef ]
-"116
-[; ;encm369_pic18.c: 116: {
+"127
+[; ;encm369_pic18.c: 127: {
 {
 [e :U _SysTickSetup ]
 [f ]
-"117
-[; ;encm369_pic18.c: 117:   G_u32SystemTime1ms = 0;
-[e = _G_u32SystemTime1ms -> -> -> 0 `i `l `ul ]
-"118
-[; ;encm369_pic18.c: 118:   G_u32SystemTime1s = 0;
-[e = _G_u32SystemTime1s -> -> -> 0 `i `l `ul ]
-"126
-[; ;encm369_pic18.c: 126:   T2PR = 125;
-[e = _T2PR -> -> 125 `i `uc ]
-"127
-[; ;encm369_pic18.c: 127:   T2CLKCON = 0x01;
-[e = _T2CLKCON -> -> 1 `i `uc ]
 "128
-[; ;encm369_pic18.c: 128:   PIR3bits.TMR2IF = 0;
-[e = . . _PIR3bits 0 3 -> -> 0 `i `uc ]
+[; ;encm369_pic18.c: 128:   G_u32SystemTime1ms = 0;
+[e = _G_u32SystemTime1ms -> -> -> 0 `i `l `ul ]
 "129
-[; ;encm369_pic18.c: 129:   T2CON = 0xF0;
+[; ;encm369_pic18.c: 129:   G_u32SystemTime1s = 0;
+[e = _G_u32SystemTime1s -> -> -> 0 `i `l `ul ]
+"137
+[; ;encm369_pic18.c: 137:   T2PR = 125;
+[e = _T2PR -> -> 125 `i `uc ]
+"138
+[; ;encm369_pic18.c: 138:   T2CLKCON = 0x01;
+[e = _T2CLKCON -> -> 1 `i `uc ]
+"139
+[; ;encm369_pic18.c: 139:   PIR3bits.TMR2IF = 0;
+[e = . . _PIR3bits 0 3 -> -> 0 `i `uc ]
+"140
+[; ;encm369_pic18.c: 140:   T2CON = 0xF0;
 [e = _T2CON -> -> 240 `i `uc ]
-"131
-[; ;encm369_pic18.c: 131:   PIE3bits.TMR2IE = 1;
+"142
+[; ;encm369_pic18.c: 142:   PIE3bits.TMR2IE = 1;
 [e = . . _PIE3bits 0 3 -> -> 1 `i `uc ]
-"133
-[; ;encm369_pic18.c: 133: }
+"144
+[; ;encm369_pic18.c: 144: }
 [e :UE 2274 ]
 }
-"150
-[; ;encm369_pic18.c: 150: void SystemSleep(void)
+"161
+[; ;encm369_pic18.c: 161: void SystemSleep(void)
 [v _SystemSleep `(v ~T0 @X0 1 ef ]
-"151
-[; ;encm369_pic18.c: 151: {
+"162
+[; ;encm369_pic18.c: 162: {
 {
 [e :U _SystemSleep ]
 [f ]
-"152
-[; ;encm369_pic18.c: 152:   G_u8SystemFlags |= (u8)0x40;
+"163
+[; ;encm369_pic18.c: 163:   G_u8SystemFlags |= (u8)0x40;
 [e =| _G_u8SystemFlags -> -> -> 64 `i `uc `Vuc ]
-"153
-[; ;encm369_pic18.c: 153:   while(G_u8SystemFlags & (u8)0x40);
+"164
+[; ;encm369_pic18.c: 164:   while(G_u8SystemFlags & (u8)0x40);
 [e $U 2276  ]
 [e :U 2277 ]
 [e :U 2276 ]
 [e $ != & -> _G_u8SystemFlags `i -> -> -> 64 `i `uc `i -> 0 `i 2277  ]
 [e :U 2278 ]
-"155
-[; ;encm369_pic18.c: 155: }
+"166
+[; ;encm369_pic18.c: 166: }
 [e :UE 2275 ]
 }

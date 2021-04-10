@@ -43,10 +43,15 @@ void main(void)
   SysTickSetup();
 
   /* Driver initialization */
- 
+  SPI_Init();
+  SD_Init();
+    
   /* Application initialization */
   UserAppInitialize();
   
+  SD_ReadBlock(0x00,0x00,0x00,0x00);      //Ex D TODO: Delete this line.
+  __nop();                                //Ex D TODO: Delete this line. 
+    
   /* Exit initialization */
   G_u8SystemFlags &= ~_SYSTEM_INITIALIZING;
     

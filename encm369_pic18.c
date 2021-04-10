@@ -92,6 +92,17 @@ void GpioSetup(void)
   /* Setup PORTA for all digital output */
   ANSELA = 0x00;
   TRISA  = 0x00;
+  
+  /* Setup PORTC for SPI connection */
+  ANSELC = 0x00;
+  TRISC  = 0x6B; // b'0110 1011' RC2, RC4, RC7 outputs
+  LATC   = 0x94; // b'1001 0100' Try to set CS, MOSI and SCK high to start
+  
+  RC2PPS = 0x31; // SCK1 to RC2
+  RC4PPS = 0x32; // MOSI to RC4
+ 
+  SPI1SCKPPS = 0x12; // b'010 010' SCK1 on RC2
+  SPI1SDIPPS = 0x13; // b'010 011' MISO  on RC3
    
   /* Configure DAC1 for Vdd and Vss references, on, and RA2 output. */
   DAC1CON  = 0xA0;
